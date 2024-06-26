@@ -1,0 +1,46 @@
+.folms {
+  position: absolute;
+  
+  top: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 40%;
+  border-radius: 4px;
+}
+.roundfg{
+    padding-left: 40%;
+
+}
+.locks {
+  width: 30px;
+  height: 30px;
+  background-color: aquamarine;
+  color: white;
+  border-radius: 50%;
+  padding: 8px;
+  margin-left: 11px;
+}
+
+.fileblue{
+    display: flex;
+   border: 1px solid blue;
+   justify-content: space-evenly;
+   padding: 10px;
+   background-color: rgb(118, 118, 237);
+   color: white;
+}
+
+.inpuvb{
+   width: 391px;
+   border-radius: 3px;
+   border: 1px solid gray;
+}
+
+.btny{
+    background-color: rgb(91, 91, 215);
+    color: white;
+    border: 0cap;
+    margin-bottom: 50px;
+    border-radius: 4px;
+}

@@ -1,0 +1,84 @@
+.leftNav {
+  width: 17%;
+  height: 100%;
+  background-color: white;
+  position: relative;
+  border-right: 1px solid gray;
+}
+
+.linkse {
+  list-style-type: none;
+}
+
+.jsb {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  height: 25px;
+}
+
+.sist {
+  padding-top: 20px;
+}
+
+.los {
+  gap: 10px;
+  padding-bottom: 20px;
+}
+.ic {
+  padding-right: 8px;
+}
+
+.cnt {
+  text-align: center;
+  padding-bottom: 10px;
+  color: gray;
+}
+
+.hor-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  padding-bottom: 5px;
+  margin-left: 10px;
+  background-color: aquamarine;
+  float: right;
+  width: 83%;
+  top: 0px;
+  position: absolute;
+  float: right;
+  right: 0;
+  background-color: rgb(71, 71, 255);
+  color: white;
+}
+
+.hola {
+  display: flex;
+  position: relative;
+}
+
+.propfilepic {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: aqua;
+  list-style-type: none;
+  padding-left: 10px;
+  padding-top: 15px;
+  height: 40px;
+  width: 40px;
+  background-color: rgb(127, 221, 255);
+  border-radius: 50%;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+.jfry {
+  display: flex;
+  gap: 10px;
+}
+
+.pidl {
+  padding-top: 12px;
+  padding-right: 10px;
+  list-style-type: none;
+}

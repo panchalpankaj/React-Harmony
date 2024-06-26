@@ -1,0 +1,47 @@
+.signy{
+    text-align: center;
+    padding-top: 0px;
+    padding-left: 20px;
+}
+.imgese{
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    position: relative;
+}
+
+.forms{
+    width: 40%;
+    height: 100vh;
+    background-color: white;
+    right: 0;
+    position: absolute;
+    top: 70px;
+}
+
+.radio-group{
+    gap: 5px;
+    display: flex;
+}
+
+.labse{
+    padding-left: 10px;
+    display: flex;
+}
+
+.opop{
+    padding-left: 10px;
+}
+
+.check{
+    display: flex;
+    gap: 10px;
+}
+
+.inpus{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    gap: 18px;
+    margin-top: 10px;
+}

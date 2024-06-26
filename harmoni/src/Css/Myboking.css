@@ -1,0 +1,59 @@
+.imgs-tex {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 50px;
+    padding-right: 50px;
+    background-color: #031124;
+    justify-content: space-between;
+  }
+  
+  .im1 {
+    display: flex;
+    width: 50%;
+    gap: 10px;
+    position: relative;
+  }
+  
+  .imm1 {
+    width: 100%;
+    height: auto;
+    padding-top: 15px;
+    border-radius: 35px;
+    padding-left: 10px;
+}
+
+.iim2{
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    padding-top: 15px;
+    border-radius: 35px 35px 0 0;
+    padding-left: 10px;
+  }
+  
+  .im1 .ttx {
+    bottom: 70px;
+    left: 100px;
+    position: absolute;
+  }
+  
+  .im1 .ttx .bordsd,
+  .im1 .ttx .bordsd2,
+  .im1 .ttx .bordsd3 { 
+    padding: 2px 15px;
+    border-radius: 15px;
+    background-color: rgba(3, 17, 36, 0.2);
+    margin-bottom: 5px;
+  }
+  .bordsd{
+    margin-right: 355px;
+  }
+  
+  .bordsd3{
+    margin-right: 100px;
+  }
+  
+  .im1 .ttx .bordsd3 {
+    margin-bottom: 20px;
+  }
+  

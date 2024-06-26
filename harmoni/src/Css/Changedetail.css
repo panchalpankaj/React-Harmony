@@ -1,0 +1,35 @@
+.signys{
+    text-align: center;
+    margin-top: 5px;
+}
+
+.inpupp{
+    display: flex;
+    flex-direction: column;
+    margin: 15px;
+    gap: 7px;
+    padding-top: 30px;
+}
+
+#locks{
+   padding-left: 50%;
+   /* padding-top: 20px; */
+   justify-content: center;
+   padding-left: 17px;
+   padding-bottom: 8px;
+}
+
+.iconlock{
+   
+    border-radius: 50%;
+    padding:0;
+    margin: 0;
+    margin-left: 274px;
+    margin-right: 285px;
+    padding: 15px;
+    margin-top: 20px;
+    color: white;
+}
+.lockysd{
+    padding-left: 10px;
+}

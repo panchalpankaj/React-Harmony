@@ -1,0 +1,88 @@
+.profiles{
+    background-color: rgb(233, 233, 233);
+    position: absolute;
+    top: 95px;
+    height: 100vh;
+   margin-left: 17%;
+}
+
+.whitelogo{
+    position: relative;
+   margin-left: 30px;
+   margin-right: 30px;
+   margin-top: 30px;
+   background-color: white;
+   height: 300px;
+   width: 1200px;
+   
+}
+.whitelogo2{
+    position: relative;
+   margin-left: 30px;
+   margin-right: 30px;
+   margin-top: 30px;
+   background-color: white;
+   height: 220px;
+   width: 1200px;
+   
+}
+
+.rounsd{
+    height: 40px;
+    width: 40px;
+    background-color: rgb(127, 221, 255);
+    border-radius: 50%;
+    margin-left: 47%;
+    margin-top: 10%;
+}
+
+.btlko{
+    display: flex;
+    margin-left: 30px;
+}
+.blackbtn{
+    background-color: black;
+    color: white;
+    margin-top: 18px;
+    margin-right: 10px;
+    border-radius: 6px;
+    padding: 3px;
+}
+
+.lossa{
+    padding-left: 10px;
+    padding-top: 10px;
+    font-weight: 700;
+    font-size: large;
+}
+
+.inpio{
+    display: flex;
+    margin-top: 10px;
+}
+
+.lab{
+    padding-top: 20px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.ips{
+    border-radius: 5px;
+    border: 1px solid grey;
+    padding: 5px;
+}
+
+.btnyu{
+    display: flex;
+    border-radius: 5px;
+    background-color: rgb(129, 129, 241);
+   float: right;
+   margin: 10px;
+   margin-bottom: 20px;
+    border: 0cap;
+    margin-top: 40px;
+    color: white;
+    padding: 7px;
+}

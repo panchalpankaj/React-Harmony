@@ -1,0 +1,28 @@
+.linked{
+    list-style-type: none;
+  }
+
+
+  .cardy{
+    width: 18rem;
+    margin-left: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: lightgray;
+  }
+
+  .card-img-top{
+    height: 350px;
+  }
+
+  .card-text{
+    padding-bottom: 10px;
+  }
+
+  .llm{
+    list-style-type: none;
+  }
+
+  .addr{
+    padding: 10px;
+  }

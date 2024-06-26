@@ -1,0 +1,23 @@
+.txtui{
+    font-weight: 800;
+    font-size: larger;
+}
+
+.cont-txt{
+    display: flex;
+    justify-content: space-between;
+}
+
+.eve-btn{
+    background-color: rgb(237, 86, 69);
+    color: #fff;
+    padding: 0px 20px 0px 20px;
+}
+.bol{
+    font-weight: 600;
+}
+
+.adrdat{
+    padding-left: 15px;
+    padding-bottom: 8px;
+}

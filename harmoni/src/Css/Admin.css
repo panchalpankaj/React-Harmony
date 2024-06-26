@@ -1,0 +1,65 @@
+
+.admin{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+.formw{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    border: 2px solid white;
+    width: 250px;
+    height: 290px;
+   
+}
+
+#locku{
+    color: rgb(231, 166, 101);
+   padding-left: 47%;
+   padding-top: 25px;
+   text-align: center;
+}
+
+.logs{
+    text-align: center;
+    color: white;
+    font-weight: 700;
+
+}
+
+.inpus{
+    justify-content: center;
+    padding: 5px;
+    border-radius: 2px;
+    margin-left: 30px;
+    border: 0cap;
+}
+
+.checkboxyu{
+    margin-left: 30px;
+    color: white;
+}
+
+.rememyu{
+    color: white;
+    font-weight: 500;
+}
+
+.logbtnl{
+    background-color: #007bff;
+    border: 0cap;
+    margin-left: 30px;
+    padding: 5px;
+    margin-top: 10px;
+    padding-right: 150px;
+    border-radius: 5px;
+    transition: 0.5s;
+    color: white;
+    justify-content: center;
+    text-align: center;
+}
+
+.lo{
+    padding-left: 170%;
+}
