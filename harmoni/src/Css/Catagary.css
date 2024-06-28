@@ -66,7 +66,6 @@
 
 
 
-/* Media query for screen sizes between 400px and 1200px */
 @media (min-width: 400px) and (max-width: 1200px) {
     .onetwo {
       display: flex;
@@ -76,7 +75,7 @@
     }
   
     .folms {
-      /* width: 90%; */
+    
       margin: 10px 0;
       padding: 20px;
       border: 1px solid #ccc;
@@ -189,7 +188,7 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
-        margin-left: 40%;
+        margin-left: 0;
         border-radius: 4px;
       }
   }

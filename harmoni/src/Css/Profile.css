@@ -86,3 +86,26 @@
     color: white;
     padding: 7px;
 }
+
+
+
+@media screen and (min-width:400px) and (max-width:1200px)
+{
+    .profiles{
+        background-color: rgb(233, 233, 233);
+        position: absolute;
+        top: 95px;
+        height: 100vh;
+       margin-left: 0;
+    }
+
+    .rounsd {
+        height: 40px;
+        width: 40px;
+        background-color: rgb(127, 221, 255);
+        border-radius: 50%;
+        margin-left: 27%;
+        margin-top: 10%;
+      }
+    
+}
