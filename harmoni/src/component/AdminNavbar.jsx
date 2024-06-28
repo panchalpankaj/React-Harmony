@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../Css/AdminNavbar.css";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,16 +6,24 @@ import {
   faBookmark,
   faEnvelopeOpen,
   faListAlt,
-} from "@fortawesome/free-regular-svg-icons";
+  faBars,
+} from "@fortawesome/free-solid-svg-icons";
 import {
   faOpensuse,
   faWatchmanMonitoring,
 } from "@fortawesome/free-brands-svg-icons";
+
 export default function AdminNavbar() {
-  const Navigate = useNavigate("");
+  const [isNavVisible, setIsNavVisible] = useState(false);
+  const Navigate = useNavigate();
+
+  const toggleNav = () => {
+    setIsNavVisible(!isNavVisible);
+  };
+
   return (
     <div className="hola">
-      <div className="leftNav">
+      <div className={`leftNav ${isNavVisible ? 'visible' : ''}`}>
         <div className="jsb"> </div>
         <div className="sist">
           <ul className="linkse">
@@ -35,26 +43,36 @@ export default function AdminNavbar() {
               <FontAwesomeIcon icon={faWatchmanMonitoring} className="ic" />
               Post Catergary
             </li>
-          </ul>
-        </div>
-        <hr />
+
+        </ul>
+            <hr />
         <p className="cnt">Authantication</p>
         <ul className="linkse">
           <li onClick={() => Navigate("/admin/alluser")} className="los">
             <FontAwesomeIcon icon={faOpensuse} className="ic" />
             Log out
           </li>
-        </ul>
+          </ul>
+        </div>
+       
+        
       </div>
 
       <div className="hor-nav">
+        <FontAwesomeIcon
+          icon={faBars}
+          className="hamburger-icon"
+          onClick={toggleNav}
+        />
         <h3>Admin</h3>
         <h5 className="jfry">
           <ul className="pidl">
-            <li
-              className="roun"
-              onClick={() => Navigate("/admin/profile")}
-            >  <li className='roun'><img src='/img/boy.png' className='roun'/></li></li>
+            <li className="roun" onClick={() => Navigate("/admin/profile")}>
+              {" "}
+              <li className="roun">
+                <img src="/img/boy.png" className="roun" />
+              </li>
+            </li>
           </ul>
           Event Managment <br />
           Admin

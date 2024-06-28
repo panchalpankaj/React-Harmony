@@ -1,31 +1,61 @@
-import React, { Fragment } from "react";
+import React, { useState } from "react";
 import "../Css/Navbar.css";
 import { useNavigate } from "react-router-dom";
+import { faBars, faHamburger } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Navbar() {
-  const navigater = useNavigate("");
+  const [menuVisible, setMenuVisible] = useState(false);
+  const navigate = useNavigate("");
+
+  const toggleMenu = () => {
+    setMenuVisible(!menuVisible);
+  };
+
+  const handleNavigation = (path) => {
+    setMenuVisible(false); 
+    navigate(path);
+  };
 
   return (
     <>
       <div className="navbar">
         <div className="logo">
-        <img src="/img/logo.png" alt="Logo" className="navbar-logo" />
-         
+          <img src="/img/logo.png" alt="Logo" className="navbar-logo" />
         </div>
-        <div className="menu">
-            <ul className="menu-ul">
-                <li className="menu-li" onClick={() => navigater('/')}>HOME</li>
-                <li className="menu-li" onClick={() => navigater('/About')}>ABOUT</li>
-                <li className="menu-li" onClick={() => navigater('/Events')}>EVENTS</li>
-                <li className="menu-li" onClick={() => navigater('/Gallery')}>GALLERY</li>
-                <li className="menu-li" onClick={() => navigater('/Contact')}>CONTACT</li>
-            </ul>
+        <div className={`menu ${menuVisible ? "menu-visible" : ""}`}>
+          <ul className="menu-ul">
+            <li className="menu-li" onClick={() => handleNavigation("/")}>
+              HOME
+            </li>
+            <li className="menu-li" onClick={() => handleNavigation("/About")}>
+              ABOUT
+            </li>
+            <li className="menu-li" onClick={() => handleNavigation("/Events")}>
+              EVENTS
+            </li>
+            <li className="menu-li" onClick={() => handleNavigation("/Gallery")}>
+              GALLERY
+            </li>
+            <li className="menu-li" onClick={() => handleNavigation("/Contact")}>
+              CONTACT
+            </li>
+          </ul>
         </div>
+<div className="asdfg">
+        <div className="hamburger" onClick={toggleMenu}>
+          <FontAwesomeIcon icon={faBars}/>
+        </div>
+
         <div className="Button">
           <ul className="menu">
-                <li className="menu-li" onClick={() => navigater('/Signin')}><button type="button" className="nav-btn">Sign In</button></li>
-                </ul>
-          
+            <li className="menu-li" onClick={() => handleNavigation("/Signin")}>
+              <button type="button" className="nav-btn">
+                Sign In
+              </button>
+            </li>
+          </ul>
+        </div>
         </div>
       </div>
     </>

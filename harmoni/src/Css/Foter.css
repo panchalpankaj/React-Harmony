@@ -1,25 +1,96 @@
-
-.fotter{
-    background-color: #031124;
+.fotter {
+  background-color: #031124;
 }
 
-.purple-txt{
-    text-align: center;
-    color: purple;
-    font-weight: 700;
-    padding-top: 17px;
-    font-family: Arial, Helvetica, sans-serif;
+.purple-txt {
+  text-align: center;
+  color: purple;
+  font-weight: 700;
+  padding-top: 17px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.bord-tx1{
-    justify-content: center;
-    margin-left: 45%;
-    margin-right: 43%;
-    margin-top: 25px;
-    
+.bord-tx1 {
+  justify-content: center;
+  margin-left: 38%;
+  margin-right: 40%;
+  margin-top: 25px;
 }
-.bord-tx{
-    border:  1px solid white;
+.bord-tx {
+  border: 1px solid white;
+  color: white;
+  justify-content: center;
+  text-align: center;
+  padding-left: 8px;
+  border-radius: 2px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.three-col-foter {
+  justify-content: center;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 200px;
+  margin-right: 300px;
+  color: white;
+  margin-top: 150px;
+}
+
+.thrre-first {
+  width: 25%;
+}
+
+#tfen {
+  padding-left: 30px;
+  padding-bottom: 15px;
+  font-size: larger;
+}
+
+.thrre-2 {
+  padding-top: 80px;
+  font-weight: 500;
+  font-size: large;
+  padding-bottom: 10px;
+}
+.thrre-3 {
+  padding-top: 5px;
+}
+.thrre-4 {
+  padding-top: 5px;
+}
+.thrre-5 {
+  padding-top: 5px;
+}
+
+.thr-1 {
+  font-weight: 500;
+  font-size: large;
+  padding-bottom: 17px;
+}
+
+.thr-3 {
+  padding-bottom: 10px;
+}
+.warnys {
+  padding-top: 100px;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding-bottom: 50px;
+}
+
+@media screen and (min-width: 400px) and (max-width: 1200px) {
+  .bord-tx1 {
+    margin-left: 35%;
+    margin-right: 37%;
+    margin-top: 55px;
+    padding: 12px;
+  }
+  .bord-tx {
+    border: 1px solid white;
     color: white;
     justify-content: center;
     text-align: center;
@@ -27,61 +98,47 @@
     border-radius: 2px;
     padding-top: 5px;
     padding-bottom: 15px;
-}
+  }
 
-.three-col-foter{
+  .three-col-foter {
     justify-content: center;
     display: flex;
-    justify-content: space-between;
-    margin-left: 200px;
-    margin-right: 300px;
-    color: white;
-    margin-top: 150px;
-}
-
-.thrre-first{
-    width: 25%;
-    
-}
-
-#tfen{
-   padding-left: 30px;
-   padding-bottom: 15px;
-   font-size: larger;
-}
-
-.thrre-2{
-    padding-top: 80px;
-    font-weight: 500;
-    font-size: large;
-    padding-bottom: 10px;
-}
-.thrre-3{
-    padding-top: 5px;
-   
-}
-.thrre-4{
-    padding-top: 5px;
-   
-}
-.thrre-5{
-    padding-top: 5px;
-  
-}
-
-.thr-1{
-    font-weight: 500;
-    font-size: large;
-    padding-bottom: 17px;
-}
-
-.thr-3{
-    padding-bottom: 10px;
-}
-.warnys{
-    padding-top: 100px;
+    flex-direction: column;
     justify-content: center;
+    margin-left: 25%;
+
+    margin-top: 150px;
     text-align: center;
-    color: white;
-    padding-bottom: 50px;
+  }
+
+  .thrre-first {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    margin-left: 14%;
+  }
+  .three-sec {
+    margin-left: 29%;
+    padding-top: 50px;
+  }
+  #tfen {
+    padding-left: 50%;
+    padding-bottom: 15px;
+    font-size: larger;
+  }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+  .three-col-foter {
+    margin-left: 10%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .three-col-foter {
+    margin-left: 50%;
+  }
+  .three-sec {
+    margin-left: 50%;
+    padding-top: 50px;
+  }
 }

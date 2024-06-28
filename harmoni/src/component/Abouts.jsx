@@ -58,6 +58,7 @@ export default function Abouts() {
             </p>
           </div>
         </div>
+
         <div className="img-tx">
           <div className="img-se">
             <img src="/img/abou-img.png" className="img-secer"></img>

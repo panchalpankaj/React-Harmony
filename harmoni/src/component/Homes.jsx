@@ -1,13 +1,18 @@
 import React from "react";
 import "../Css/Home.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navbar from "./Navbar";
-import { faAtlassian, faDropbox, faShopify, faSlack } from "@fortawesome/free-brands-svg-icons";
+import {
+  faAtlassian,
+  faDropbox,
+  faShopify,
+  faSlack,
+} from "@fortawesome/free-brands-svg-icons";
 export default function Homes() {
   return (
     <>
-    <Navbar/>
-     <FontAwesomeIcon icon="fa-regular fa-eye" />
+      <Navbar />
+      <FontAwesomeIcon icon="fa-regular fa-eye" />
       <div className="homepage">
         <img src="./img/space.jpg" alt="HomePage" className="homePageImg" />
 
@@ -44,70 +49,124 @@ export default function Homes() {
           <ul className="part2-logo">
             <li>Google</li>
             <li>
-            <FontAwesomeIcon icon={faSlack}/>
-            Slack</li>
+              <FontAwesomeIcon icon={faSlack} />
+              Slack
+            </li>
             <li>
-              <FontAwesomeIcon icon={faAtlassian}/>
-              Atlansian</li>
+              <FontAwesomeIcon icon={faAtlassian} />
+              Atlansian
+            </li>
             <li>
-              <FontAwesomeIcon icon={faDropbox}/>
-              Dropbox</li>
+              <FontAwesomeIcon icon={faDropbox} />
+              Dropbox
+            </li>
             <li>
-              <FontAwesomeIcon icon={faShopify}/>
-              shopify</li>
+              <FontAwesomeIcon icon={faShopify} />
+              shopify
+            </li>
           </ul>
         </div>
 
         <div className="text-boxes">
-            <div className="text-box1">
-              <p className="aa1">What is Harmoni <br/>Event</p>
-              <p className="aa2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere aliquam pariatur deleniti, necessitatibus incidunt iusto quidem sunt iste, aliquid autem itaque sequi enim! Culpa! Lorem ipsum dolor, sit amet consectetur adipisicing. Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
+          <div className="text-box1">
+            <p className="aa1">
+              What is Harmoni
+              <br />
+              Event
+            </p>
+            <p className="aa2">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+              aliquam pariatur deleniti, necessitatibus incidunt iusto quidem
+              sunt iste, aliquid autem itaque sequi enim! Culpa! Lorem ipsum
+              dolor, sit amet consectetur adipisicing. Lorem, ipsum dolor sit
+              amet consectetur adipisicing.
+            </p>
+          </div>
+          <div className="text-box2">
+            <p className="bb1">
+              Your Event will be Bryond your
+              <br />
+              imagination
+            </p>
+            <p className="bb2">Explore the Library</p>
+          </div>
+          <div className="text-box3">
+            <div className="b1">
+              <p className="x1">Chatbots</p>
+              <p className="x2">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptates, beatae?
+              </p>
             </div>
-            <div className="text-box2">
-              <p className="bb1">Your Event will be Bryond your<br/>imagination</p>
-              <p className="bb2">Explore the Library</p>
+            <div className="b1">
+              <p className="x1">knowledgebase</p>
+              <p className="x2">
+                Lorem ipsum dolor sit Lorem ipsum dolor sit, amet consectetur
+                adipisicing elit. amet consectetur adipisicing elit. Voluptates,
+                beatae?
+              </p>
             </div>
-            <div className="text-box3">
-              <div className="b1">
-                <p className="x1">Chatbots</p>
-                <p className="x2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, beatae?</p>
-              </div>
-              <div className="b1">
-                <p className="x1">knowledgebase</p>
-                <p className="x2">Lorem ipsum dolor sit Lorem ipsum dolor sit, amet consectetur adipisicing elit. amet consectetur adipisicing elit. Voluptates, beatae?</p>
-              </div>
-              <div className="b1">
-                <p className="x1">Education</p>
-                <p className="x2">Lorem ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur adipisicing elit. consectetur adipisicing elit. Voluptates, beatae?</p>
-              </div>
+            <div className="b1">
+              <p className="x1">Education</p>
+              <p className="x2">
+                Lorem ipsum dolor sit amet Lorem ipsum dolor, sit amet
+                consectetur adipisicing elit. consectetur adipisicing elit.
+                Voluptates, beatae?
+              </p>
             </div>
+          </div>
         </div>
 
         <div className="foot">
           <p className="foot-text">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum dolor ipsa molestias quasi debitis aspernatur, eos corporis doloremque voluptatem, quae deserunt alias. Eligendi alias possimus, natus animi ea vel reiciendis quae officiis tempora minus, voluptatem necessitatibus voluptas incidunt, sunt rerum amet veritatis commodi officia aspernatur distinctio quasi reprehenderit! Error, repudiandae.
-          <p className="foot-text-b">Lorem ipsum dolor sit amet consectetur.</p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum
+            dolor ipsa molestias quasi debitis aspernatur, eos corporis
+            doloremque voluptatem, quae deserunt alias. Eligendi alias possimus,
+            natus animi ea vel reiciendis quae officiis tempora minus,
+            voluptatem necessitatibus voluptas incidunt, sunt rerum amet
+            veritatis commodi officia aspernatur distinctio quasi reprehenderit!
+            Error, repudiandae.
+            <p className="foot-text-b">
+              Lorem ipsum dolor sit amet consectetur.
+            </p>
           </p>
           <div className="mid">
-          <p className="fot-mid ">Photography</p>
-          <p className="fot-mid ">Lorem it amet.</p>
-          <p className="fot-mid ">Lorem ipsumsectetur.</p>
-          <p className="fot-mid ">Lorem, ipsum.</p>
+            <p className="fot-mid ">Photography</p>
+            <p className="fot-mid ">Lorem it amet.</p>
+            <p className="fot-mid ">Lorem ipsumsectetur.</p>
+            <p className="fot-mid ">Lorem, ipsum.</p>
           </div>
           <div className="laste">
-            <p className="fot-last">Lorem ipsum dolor sit apsum dolor sit amet. adipisicing elit. Itaque explicabo architecto dolor!</p>
-            <p className="fot-last">Lorem ipsum dolor sit ametor sit amet. adipisicing elit. Itaque explicabo architecto dolor!</p>
-            <p className="fot-last">Lorem ipsum dolor sit amet consectetur,Lolor sit amet. adipisicing elit. Itaque explicabo architecto dolor!</p>
-            <p className="fot-last">Lorem ipsum dolor stetur,Lorem ipsum dolor sit amet. adipisicing elit. Itaque explicabo architecto dolor!</p>
+            <p className="fot-last">
+              Lorem ipsum dolor sit apsum dolor sit amet. adipisicing elit.
+              Itaque explicabo architecto dolor!
+            </p>
+            <p className="fot-last">
+              Lorem ipsum dolor sit ametor sit amet. adipisicing elit. Itaque
+              explicabo architecto dolor!
+            </p>
+            <p className="fot-last">
+              Lorem ipsum dolor sit amet consectetur,Lolor sit amet. adipisicing
+              elit. Itaque explicabo architecto dolor!
+            </p>
+            <p className="fot-last">
+              Lorem ipsum dolor stetur,Lorem ipsum dolor sit amet. adipisicing
+              elit. Itaque explicabo architecto dolor!
+            </p>
           </div>
         </div>
 
         <div className="pink-fot">
           <div className="text-pink-fot">
-              <p className="pinkfot-text">Lorem ipsum dolor sit amet.</p>
-              <p className="pinkfot-text2">Lorem ipsum dolor sit amet. Lorem ipsum, dolor sit amet consectetur adipisicing.</p>
+            <p className="pinkfot-text">Lorem ipsum dolor sit amet.</p>
+            <p className="pinkfot-text2">
+              Lorem ipsum dolor sit amet. Lorem ipsum, dolor sit amet
+              consectetur adipisicing.
+            </p>
           </div>
-          <button type="btn" className="fot-btn">GET STARTED</button>
+          <button type="btn" className="fot-btn">
+            GET STARTED
+          </button>
         </div>
       </div>
     </>

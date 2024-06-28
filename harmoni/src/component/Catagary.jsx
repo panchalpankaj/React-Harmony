@@ -9,6 +9,7 @@ export default function Catagary() {
   return (
     <div>
       <AdminNavbar />
+      <div className="onetwo">
       <div className="folms">
         <p className="roundfg">
           <FontAwesomeIcon icon={faLock} className="locks" />
@@ -81,6 +82,7 @@ export default function Catagary() {
             <FontAwesomeIcon icon={faDeleteLeft}/>
           </li>
         </ul>
+      </div>
       </div>
     </div>
   );

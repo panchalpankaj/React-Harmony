@@ -77,3 +77,37 @@
   padding-top: 15px;
   color: gray;
 }
+
+
+@media screen and (min-width: 400px) and (max-width: 1200px) {
+  .signin{
+    position: relative;
+  }
+
+  .forms {
+    width: 50%;
+    height: 100vh;
+    background-color: white;
+    right: 30%;
+    position: absolute;
+    top: 15px;
+  }
+
+
+  .forwad {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  .locks{
+    display: none;
+  }
+  .radio-group {
+    gap: 5px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

@@ -45,3 +45,28 @@
     gap: 18px;
     margin-top: 10px;
 }
+
+
+
+@media screen and (min-width: 400px) and (max-width: 1200px) {
+    .signin{
+      position: relative;
+    }
+  
+    .forms {
+      width: 70%;
+      height: 115vh;
+      background-color: white;
+      right: 15%;
+      position: absolute;
+      top: 15px;
+      padding-bottom: 50px;
+    }
+
+    .imgese {
+        height: 125vh;
+        width: 100vw;
+        object-fit: cover;
+        position: relative;
+      }
+  }
