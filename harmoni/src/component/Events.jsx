@@ -20,7 +20,7 @@ export default function Events() {
             <div class="card-body">
               <h5 class="card-title">
                 <ul className="llm">
-                  <li className="linked" onClick={() => Navigater("/Events/eventes")}>Click Hear</li>
+                  <li className="linked cursor-pointer" onClick={() => Navigater("/Events/eventes")}>Click Hear</li>
                 </ul>
               </h5>
             </div>

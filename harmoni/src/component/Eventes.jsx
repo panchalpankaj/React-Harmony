@@ -16,7 +16,7 @@ export default function Eventes() {
         <img src="/img/man.jpg" class="card-img-top" alt="..." />
         <div class="card-body">
           <p class="card-text">
-            <ul className="llm">
+            <ul className="llm cursor-pointer">
                 <li onClick={() => {Navigator('/Events/eventes/eve')}}>Click Hear For Boking</li>
             </ul>
             

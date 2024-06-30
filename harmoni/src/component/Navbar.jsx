@@ -21,7 +21,7 @@ export default function Navbar() {
     <>
       <div className="navbar">
         <div className="logo">
-          <img src="/img/logo.png" alt="Logo" className="navbar-logo" />
+          <img src="/img/logo.png" alt="Logo" className=" mr-5 h-12 w-60 " />
         </div>
         <div className={`menu ${menuVisible ? "menu-visible" : ""}`}>
           <ul className="menu-ul">
@@ -50,7 +50,7 @@ export default function Navbar() {
         <div className="Button">
           <ul className="menu">
             <li className="menu-li" onClick={() => handleNavigation("/Signin")}>
-              <button type="button" className="nav-btn">
+              <button type="button" className="nav-btn bg-yellow-400 text-gray-700 hover:bg-yellow-200">
                 Sign In
               </button>
             </li>
