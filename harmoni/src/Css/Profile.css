@@ -1,7 +1,7 @@
 .profiles{
     background-color: rgb(233, 233, 233);
     position: absolute;
-    top: 95px;
+    top: 75px;
     height: 100vh;
    margin-left: 17%;
 }
@@ -33,7 +33,8 @@
     background-color: rgb(127, 221, 255);
     border-radius: 50%;
     margin-left: 47%;
-    margin-top: 10%;
+    margin-top: 2%;
+
 }
 
 .btlko{

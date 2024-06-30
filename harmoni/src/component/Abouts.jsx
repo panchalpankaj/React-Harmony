@@ -2,24 +2,14 @@ import React from "react";
 import "../Css/About.css";
 import Foter from "./Foter.jsx";
 import Navbar from "./Navbar";
+import Imagetextfront from "./PropsImagetextfront.jsx";
 export default function Abouts() {
   return (
     <>
     <Navbar/>
       <div className="about-first">
-        <div className="about-first2">
-          <img src="/img/mountai-view.jpg" className="about-img" />
 
-          <div className="textes">
-            <p className="img-text">ALL YOU NEED TO KNOW</p>
-            <p className="img-text2">ABOUT</p>
-            <p className="img-text3">HARMONI</p>
-          </div>
-          <div className="textes2">
-            <p className="img-text4">Home</p>
-            <p className="img-text5">About Us</p>
-          </div>
-        </div>
+        <Imagetextfront first="ALL YOU NEED TO KNOW" sec="ABOUT" third="HARMONEY" forth="Home" fifth="About Us"/>
 
         <div className="about-first-textes">
           <div className="abou">

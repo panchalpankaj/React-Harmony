@@ -12,6 +12,7 @@ export default function Events() {
       <div className="about-first2">
         <img src="/img/mountai-view.jpg" className="about-img" />
       </div>
+      
 
       <div class="row row-cols-1 row-cols-md-3 g-5 events">
         <div class="col">

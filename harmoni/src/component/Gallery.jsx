@@ -3,23 +3,13 @@ import "../Css/Gallery.css";
 import Foter from "./Foter.jsx";
 import "../Css/Contact.css";
 import Navbar from "./Navbar.jsx";
+import Imagetextfront from "./PropsImagetextfront.jsx";
 export default function Gallery() {
   return (
     <div>
       <Navbar/>
-      <div className="about-first2">
-        <img src="/img/mountai-view.jpg" className="about-img" />
-
-        <div className="textes">
-          <p className="img-text">HARMONI EVENTS</p>
-          <p className="img-text2">HARMONI</p>
-          <p className="img-text3">GALLERY</p>
-        </div>
-        <div className="textes2">
-          <p className="img-text4">Harmoni</p>
-          <p className="img-text5">Gallery</p>
-        </div>
-      </div>
+      
+      <Imagetextfront first="HARMONI EVENTS" sec={"HARMONI"} third={"GALLERY"} forth={"Harmoni"} fifth={"Gallery"}/>
       <div className="jsta">
         <div className="og">
           ------<span className="strs">★★ </span>Our Gallery{" "}

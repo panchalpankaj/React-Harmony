@@ -24,22 +24,21 @@ export default function AdminNavbar() {
   return (
     <div className="hola">
       <div className={`leftNav ${isNavVisible ? 'visible' : ''}`}>
-        <div className="jsb"> </div>
-        <div className="sist">
+        <div className="sist pl-3 cursor-pointer">
           <ul className="linkse">
-            <li onClick={() => Navigate("/admin/alluser")} className="los">
+            <li onClick={() => Navigate("/admin/alluser")} className="los hover:text-green-500">
               <FontAwesomeIcon icon={faListAlt} className="ic" />
               All User
             </li>
-            <li onClick={() => Navigate("/admin/addEvent")} className="los">
+            <li onClick={() => Navigate("/admin/addEvent")} className="los hover:text-green-500">
               <FontAwesomeIcon icon={faEnvelopeOpen} className="ic" />
               Event Post
             </li>
-            <li onClick={() => Navigate("/admin/alluser")} className="los">
+            <li onClick={() => Navigate("/admin/alluser")} className="los hover:text-green-500">
               <FontAwesomeIcon icon={faBookmark} className="ic" />
               Book Event
             </li>
-            <li onClick={() => Navigate("/admin/catagary")} className="los">
+            <li onClick={() => Navigate("/admin/catagary")} className="los hover:text-green-500">
               <FontAwesomeIcon icon={faWatchmanMonitoring} className="ic" />
               Post Catergary
             </li>
@@ -48,8 +47,8 @@ export default function AdminNavbar() {
             <hr />
         <p className="cnt">Authantication</p>
         <ul className="linkse">
-          <li onClick={() => Navigate("/admin/alluser")} className="los">
-            <FontAwesomeIcon icon={faOpensuse} className="ic" />
+          <li onClick={() => Navigate("/admin/alluser")} className="los hover:text-green-500">
+            <FontAwesomeIcon icon={faOpensuse} className="ic " />
             Log out
           </li>
           </ul>
@@ -66,7 +65,7 @@ export default function AdminNavbar() {
         />
         <h3>Admin</h3>
         <h5 className="jfry">
-          <ul className="pidl">
+          <ul className="pidl cursor-pointer ">
             <li className="roun" onClick={() => Navigate("/admin/profile")}>
               {" "}
               <li className="roun">

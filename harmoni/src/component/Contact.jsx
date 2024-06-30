@@ -2,25 +2,13 @@ import React from "react";
 import "../Css/Contact.css";
 import Foter from "./Foter.jsx";
 import Navbar from "./Navbar.jsx";
-
+import Imagetextfront from "./PropsImagetextfront.jsx";
 export default function Contact() {
   return (
     <div>
       <Navbar/>
-      <div className="about-first2">
-        <img src="/img/mountai-view.jpg" className="about-img" />
-
-        <div className="textes">
-          <p className="img-text">CONTACT US NOW</p>
-          <p className="img-text2">KEEP</p>
-          <p className="img-text3">IN TOUCH</p>
-        </div>
-        <div className="textes2">
-          <p className="img-text4">Home</p>
-          <p className="img-text5">CONTACT US</p>
-        </div>
-      </div>
-
+    {/* use Props */}
+<Imagetextfront first={"CONTACT US NOW"} sec={"KEEP"} third={"IN TOUCH"} forth={"Home"} fifth={"CONTACT US"}/>
       <div className="img-contact">
         <img src="./img/cont.jpeg" className="cont-img"></img>
         <div className="formse">
