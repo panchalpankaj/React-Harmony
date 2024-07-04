@@ -3,14 +3,31 @@ import "../Css/Admin.css";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 export default function Admin() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [isChecked, setIsChecked] = useState(false);
+  const Navigate = useNavigate("");
+
+  const login = async (e) => {
+    e.preventDefault();
+    const data = { email, password };
+    axios
+      .post(`http://localhost:3046/api/v1/admin/login`, data)
+      .then((res) => {
+        console.log(res);
+        Navigate("/admin/alluser");
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
 
   const handelCheck = (e) => {
     setIsChecked(e.target.checked);
   };
 
-  const Navigate = useNavigate("");
 
   return (
     <div>
@@ -18,8 +35,17 @@ export default function Admin() {
       <div className="formw">
         <FontAwesomeIcon icon={faLock} id="locku" />
         <p className="logs">LOGIN</p>
-        <input type="text" placeholder="Email" className="inpus" />
-        <input type="password" placeholder="Password" className="inpus" />
+        <input
+          type="text"
+          placeholder="Email"
+          className="inpus"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input type="password" placeholder="Password" className="inpus" 
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        />
         <label className="checkbox">
           <input
             type="checkbox"
@@ -29,8 +55,11 @@ export default function Admin() {
           />
           <p className="rememyu">Remember me</p>
         </label>
-        <button className="logbtnl" onClick={() => Navigate("./alluser")}>
-          <p className="lo">Login</p>
+        <button className="logbtnl"  >
+          <p className="lo" onClick={login}>
+           
+            Login
+          </p>
         </button>
       </div>
     </div>

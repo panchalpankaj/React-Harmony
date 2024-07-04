@@ -1,6 +1,6 @@
 .folms {
   position: absolute;
-  top: 150px;
+  top: 100px;
   display: flex;
   flex-direction: column;
   gap: 10px;

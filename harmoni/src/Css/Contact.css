@@ -108,6 +108,17 @@
   border-style: groove;
   margin-bottom: 15px;
 }
+.input-txtyu2 {
+  justify-content: center;
+  width: 80%;
+  height: 100px;
+  border-radius: 3px;
+  margin-left: 50px;
+  margin-top: 10px;
+  border: 1px solid rgb(195, 188, 188);
+  border-style: groove;
+  margin-bottom: 15px;
+}
 
 .btne {
   background-color: rgb(92, 80, 233);
