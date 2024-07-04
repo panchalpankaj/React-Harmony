@@ -9,9 +9,9 @@ export default function Foter() {
       
 
       <div className="fotter">
-        <h2 className="purple-txt">Do you Want to Step in to the <br/> future of Your Upcoming Event</h2>
+        <h2 className="purple-txt text-3xl">Do you Want to Step in to the <br/> future of Your Upcoming Event</h2>
         <div className="bord-tx1">
-        <p  className="bord-tx">Request Early Access</p>
+        <p  className="bord-tx rounded-2xl">Request Early Access</p>
         </div>
 
         <div className="three-col-foter">

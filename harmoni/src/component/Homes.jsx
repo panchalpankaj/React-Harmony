@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../Css/Home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navbar from "./Navbar";
@@ -8,9 +8,20 @@ import {
   faShopify,
   faSlack,
 } from "@fortawesome/free-brands-svg-icons";
+
 export default function Homes() {
+  const [count , setCount] = useState(0)
+
+  useEffect(()=>{
+    setTimeout(()=>{
+      setCount((count)=>count+1)
+    },1000)
+  })
+
+
   return (
     <>
+     
       <Navbar />
       <FontAwesomeIcon icon="fa-regular fa-eye" />
       <div className="homepage">
