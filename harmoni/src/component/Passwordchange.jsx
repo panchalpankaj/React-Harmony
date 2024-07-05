@@ -5,19 +5,29 @@ import axios from "axios";
 
 export default function Passwordchange() {
   const [password, setPassword] = useState("");
-  const [updatePass, setUpdatepass] = useState("");
+  const [newPassword, setUpdatepass] = useState("");
 
-  const update = async (e) => {
-    e.preventDefault();
-    const data = { password, updatePass };
-    axios
-      .post("http://localhost:3046/api/v1/users/passwordChange", data)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+  const tokan = sessionStorage.getItem('accessToken')
+  // console.log(tokan)
+
+  const fd = new FormData();
+  fd.append('password',password)
+  fd.append('newPassword',newPassword)
+
+
+
+  const update = async () => {
+   await axios.post('http://localhost:3046/api/v1/admin/passwordChange',fd,{
+    headers : {
+      Authorization : tokan
+    }
+   })
+   .then((res) => {
+    console.log(res);
+   })
+   .catch((err) => {
+    console.log(err);
+   })
   };
 
   return (
@@ -33,7 +43,7 @@ export default function Passwordchange() {
         </div>
         <div className="whitelogo2">
           <p className="lossa">Change Password</p>
-          <div className="inpio">
+          <div className="inpio ">
             <label className="lab">
               Old Password:
               <input
@@ -45,18 +55,14 @@ export default function Passwordchange() {
             </label>
             <label
               className="lab"
-              value={updatePass}
+              value={newPassword}
               onChange={(e) => setUpdatepass(e.target.value)}
             >
               New Password:
               <input type="password" className="ips"></input>
             </label>
-            {/* <label className="lab">
-              Confirm Password:
-              <input type="password" className="ips"></input>
-            </label> */}
           </div>
-          <button className="btnyu" onClick={update}>
+          <button className="bg-green-300 rounded p-3 ml-2 mt-3 lg:flex lg:flex-col lg:float-end lg:mr-3" onClick={update}>
             UpDate
           </button>
         </div>

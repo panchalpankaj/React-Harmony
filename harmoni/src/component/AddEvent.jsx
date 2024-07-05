@@ -107,9 +107,9 @@ export default function AddEvent() {
           onChange={(e) => setCat_name(e.target.value)}
         >
           <option selected>Select Catagary</option>
-          <option value={"one"} onChange={(e) => set_id(e.target.value)}>One</option>
-          <option value={"two"} onChange={(e) => set_id(e.target.value)}>Two</option>
-          <option value={"three"}onChange={(e) => set_id(e.target.value)}>Three</option>
+          <option value={"one"} onChange={(e) => set_id(e.target.value)}>1</option>
+          <option value={"two"} onChange={(e) => set_id(e.target.value)}>2</option>
+          <option value={"three"}onChange={(e) => set_id(e.target.value)}>3</option>
         </select>
         <input
           type="text"
