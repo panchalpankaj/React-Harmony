@@ -12,35 +12,43 @@ export default function AddEvent() {
   const [s_time, setS_time] = useState("");
   const [e_time, setE_time] = useState("");
   const [location, setLocation] = useState("");
-  const [desc, setDesc] = useState("");
-  const [cat_id, set_id] = useState("");
-  const [cat_name, setCat_name] = useState("");
-  const [imgs, setImgs] = useState("");
+  const [description, setDesc] = useState("");
+  const [category_id, set_id] = useState("");
+  const [category_name, setCat_name] = useState("");
+  const [image, setImgs] = useState("");
 
-  const Postbtn = async (e) => {
-    e.preventDefault();
-    const Data = {
-      title,
-      s_date,
-      e_date,
-      s_time,
-      e_time,
-      location,
-      desc,
-      cat_id,
-      cat_name,
-      imgs,
-    };
 
-    axios
-      .post(`http://localhost:3046/api/v1/admin/addevent`, Data)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((e) => {
+  const tokan = sessionStorage.getItem('accessToken')
+  console.log(tokan);
+
+
+  const fd = new FormData()
+  fd.append("title",title)
+  fd.append("s_data",s_date)
+  fd.append("e_data",e_date)
+  fd.append("s_time",s_time)
+  fd.append("e_time",e_time)
+  fd.append("location",location)
+  fd.append("description",description)
+  fd.append("category_id",category_id)
+  fd.append("category_name",category_name)
+  fd.append("image",image)
+
+
+  const Postbtn = async() => {
+    await axios.post(`http://localhost:3046/api/v1/admin/addevent` , fd , {
+      headers : {
+        Authorization : tokan
+      }
+    })
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((e) => {
         console.log(e);
-      });
-  };
+    })
+  }
+   
 
   return (
     <div>
@@ -53,8 +61,7 @@ export default function AddEvent() {
         <div className="fileblue">
           <input
             type="file"
-            value={imgs}
-            onChange={(e) => setImgs(e.target.value)}
+            onChange={(e)=>setImgs(e.target.files[0])}
           ></input>
           <p>Chose Pics</p>
         </div>
@@ -96,14 +103,13 @@ export default function AddEvent() {
         <select
           className="form-select inpuvb"
           aria-label="Default select example"
-          value={cat_name}
+          value={category_name}
           onChange={(e) => setCat_name(e.target.value)}
         >
-          <option selected   value={cat_name}
-          onChange={(e) => setCat_name(e.target.value)}>Select Catagary</option>
-          <option value="1" >One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option selected>Select Catagary</option>
+          <option value={"one"} onChange={(e) => set_id(e.target.value)}>One</option>
+          <option value={"two"} onChange={(e) => set_id(e.target.value)}>Two</option>
+          <option value={"three"}onChange={(e) => set_id(e.target.value)}>Three</option>
         </select>
         <input
           type="text"
@@ -117,7 +123,7 @@ export default function AddEvent() {
           cols={40}
           placeholder="Description"
           className="border-gray-300 border-2"
-          value={desc}
+          value={description}
           onChange={(e) => setDesc(e.target.value)}
         />
         <button className="btny" onClick={Postbtn}>

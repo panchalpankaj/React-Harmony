@@ -51,10 +51,10 @@ export default function Passwordchange() {
               New Password:
               <input type="password" className="ips"></input>
             </label>
-            <label className="lab">
+            {/* <label className="lab">
               Confirm Password:
               <input type="password" className="ips"></input>
-            </label>
+            </label> */}
           </div>
           <button className="btnyu" onClick={update}>
             UpDate

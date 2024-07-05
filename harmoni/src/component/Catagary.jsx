@@ -8,21 +8,31 @@ import { faMessage } from "@fortawesome/free-regular-svg-icons";
 import axios from "axios";
 
 export default function Catagary() {
-  const [file, setFile] = useState("");
-  const [cata, setCat] = useState("");
+  const [category_name, setCatname] = useState("");
+  const [URL, setUrl] = useState("");
 
-  const PostBtn = async (e) => {
-    e.preventDefault();
-    const data = { file, cata };
-    axios
-      .post(`http://localhost:3046/api/v1/admin/addevent`, data)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
+  const token = sessionStorage.getItem('accessToken')
+  console.log(token)
+
+  const fd = new FormData()
+  fd.append("category_name" ,category_name) 
+  fd.append("URL" ,URL)
+
+
+  const postCat = async()=>{
+    await axios.post( `http://localhost:3046/api/v1/admin/addcategory` , fd, {
+      headers :{
+        Authorization : token
+      }
+    })
+    .then((res)=>{
+      console.log(res)
+    })
+
+    .catch((err)=>{
+      console.log(err)
+    })
+  }
 
   return (
     <div>
@@ -34,18 +44,20 @@ export default function Catagary() {
             <p className="poste">Post Event</p>
           </p>
           <div className="fileblue">
-            <input type="file"></input>
+            <input type="file" onChange={(e)=>setUrl(e.target.files[0])} ></input>
             <p>Chose Pics</p>
           </div>
 
           <input
+          value={category_name}
+          onChange={(e)=>setCatname(e.target.value)}
             type="text"
             placeholder="Catagary name"
             id="olala"
             className="inpuvb"
           ></input>
 
-          <button className="btny">Post</button>
+          <button onClick={postCat} className="btny">Post</button>
         </div>
 
         <div className="allu2">

@@ -17,6 +17,8 @@ export default function Admin() {
       .post(`http://localhost:3046/api/v1/admin/login`, data)
       .then((res) => {
         console.log(res);
+        console.log(res.data.accessToken);
+        sessionStorage.setItem("accessToken" , res.data.accessToken)
         Navigate("/admin/alluser");
       })
       .catch((e) => {
