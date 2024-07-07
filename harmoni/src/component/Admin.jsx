@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+
 export default function Admin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,7 +19,7 @@ export default function Admin() {
       .then((res) => {
         console.log(res);
         console.log(res.data.accessToken);
-        sessionStorage.setItem("accessToken" , res.data.accessToken)
+        sessionStorage.setItem("accessToken", res.data.accessToken);
         Navigate("/admin/alluser");
       })
       .catch((e) => {
@@ -29,7 +30,6 @@ export default function Admin() {
   const handelCheck = (e) => {
     setIsChecked(e.target.checked);
   };
-
 
   return (
     <div>
@@ -44,9 +44,12 @@ export default function Admin() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input type="password" placeholder="Password" className="inpus" 
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        <input
+          type="password"
+          placeholder="Password"
+          className="inpus"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <label className="checkbox">
           <input
@@ -57,9 +60,8 @@ export default function Admin() {
           />
           <p className="rememyu">Remember me</p>
         </label>
-        <button className="logbtnl"  >
+        <button className="logbtnl">
           <p className="lo" onClick={login}>
-           
             Login
           </p>
         </button>

@@ -5,6 +5,10 @@ import { faLock } from "@fortawesome/free-solid-svg-icons";
 import "../Css/Addevent.css";
 import axios from "axios";
 
+
+// Data in Form Formate How to Update Data using sessionStorage And Tokans 
+
+
 export default function AddEvent() {
   const [title, setTitle] = useState("");
   const [s_date, setS_date] = useState("");
@@ -19,7 +23,7 @@ export default function AddEvent() {
 
 
   const tokan = sessionStorage.getItem('accessToken')
-  console.log(tokan);
+  // console.log(tokan);
 
 
   const fd = new FormData()
@@ -61,6 +65,7 @@ export default function AddEvent() {
         <div className="fileblue">
           <input
             type="file"
+           
             onChange={(e)=>setImgs(e.target.files[0])}
           ></input>
           <p>Chose Pics</p>
