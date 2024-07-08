@@ -5,10 +5,6 @@ import { faLock } from "@fortawesome/free-solid-svg-icons";
 import "../Css/Addevent.css";
 import axios from "axios";
 
-
-// Data in Form Formate How to Update Data using sessionStorage And Tokans 
-
-
 export default function AddEvent() {
   const [title, setTitle] = useState("");
   const [s_date, setS_date] = useState("");
@@ -17,42 +13,40 @@ export default function AddEvent() {
   const [e_time, setE_time] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDesc] = useState("");
-  const [category_id, set_id] = useState("");
   const [category_name, setCat_name] = useState("");
   const [image, setImgs] = useState("");
 
-
-  const tokan = sessionStorage.getItem('accessToken')
+  const tokan = sessionStorage.getItem("accessToken");
   // console.log(tokan);
 
+  const fd = new FormData();
+  fd.append("title", title);
+  fd.append("s_data", s_date);
+  fd.append("e_data", e_date);
+  fd.append("s_time", s_time);
+  fd.append("e_time", e_time);
+  fd.append("location", location);
+  fd.append("description", description);
+  fd.append("category_name", category_name);
+  fd.append("image", image);
 
-  const fd = new FormData()
-  fd.append("title",title)
-  fd.append("s_data",s_date)
-  fd.append("e_data",e_date)
-  fd.append("s_time",s_time)
-  fd.append("e_time",e_time)
-  fd.append("location",location)
-  fd.append("description",description)
-  fd.append("category_id",category_id)
-  fd.append("category_name",category_name)
-  fd.append("image",image)
+// console.log(fd);
 
-
-  const Postbtn = async() => {
-    await axios.post(`http://localhost:3046/api/v1/admin/addevent` , fd , {
-      headers : {
-        Authorization : tokan
-      }
-    })
-    .then((res) => {
-      console.log(res);
-    })
-    .catch((e) => {
+  const Postbtn = async () => {
+    await axios
+      .post(`http://localhost:3046/api/v1/admin/addevent`, fd, {
+        headers: {
+          Authorization: tokan,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+      
+      })
+      .catch((e) => {
         console.log(e);
-    })
-  }
-   
+      });
+  };
 
   return (
     <div>
@@ -65,8 +59,7 @@ export default function AddEvent() {
         <div className="fileblue">
           <input
             type="file"
-           
-            onChange={(e)=>setImgs(e.target.files[0])}
+            onChange={(e) => setImgs(e.target.files[0])}
           ></input>
           <p>Chose Pics</p>
         </div>
@@ -104,18 +97,17 @@ export default function AddEvent() {
           value={e_time}
           onChange={(e) => setE_time(e.target.value)}
         ></input>
-        {/* <input type="text" placeholder="Price" className="inpuvb"></input> */}
+
         <select
           className="form-select inpuvb"
           aria-label="Default select example"
-          value={category_name}
           onChange={(e) => setCat_name(e.target.value)}
         >
-          <option selected>Select Catagary</option>
-          <option value={"one"} onChange={(e) => set_id(e.target.value)}>1</option>
-          <option value={"two"} onChange={(e) => set_id(e.target.value)}>2</option>
-          <option value={"three"}onChange={(e) => set_id(e.target.value)}>3</option>
+          <option value="one">One</option>
+          <option value="two">Two</option>
+          <option value="three">Three</option>
         </select>
+
         <input
           type="text"
           placeholder="Location"
