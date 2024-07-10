@@ -20,6 +20,7 @@ export default function AddEvent() {
   // console.log(tokan);
 
   const fd = new FormData();
+
   fd.append("title", title);
   fd.append("s_data", s_date);
   fd.append("e_data", e_date);
@@ -30,7 +31,7 @@ export default function AddEvent() {
   fd.append("category_name", category_name);
   fd.append("image", image);
 
-// console.log(fd);
+  // console.log(fd);
 
   const Postbtn = async () => {
     await axios
@@ -41,7 +42,6 @@ export default function AddEvent() {
       })
       .then((res) => {
         console.log(res);
-      
       })
       .catch((e) => {
         console.log(e);

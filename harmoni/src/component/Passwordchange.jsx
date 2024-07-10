@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "../Css/Passwordchange.css";
 import AdminNavbar from "./AdminNavbar";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Passwordchange() {
+  const Navigator = useNavigate();
   const [password, setPassword] = useState("");
   const [newPassword, setUpdatepass] = useState("");
 
@@ -37,7 +39,7 @@ export default function Passwordchange() {
           <img src="/img/boy.png" className="rounsd" />
         </div>
         <div className="btlko">
-          <button className="blackbtn">Persnal Detail</button>
+          <button className="blackbtn"  onClick={() => Navigator('/admin/profile')}>Persnal Detail</button>
           <button className="blackbtn">Change Password</button>
         </div>
         <div className="whitelogo2">

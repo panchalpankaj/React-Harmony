@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Css/Catagary.css";
 import "../Css/Addevent.css";
 import AdminNavbar from "./AdminNavbar";
@@ -10,29 +10,46 @@ import axios from "axios";
 export default function Catagary() {
   const [category_name, setCatname] = useState("");
   const [URL, setUrl] = useState("");
+  const [userData, setUserData] = useState([]);
 
-  const token = sessionStorage.getItem('accessToken')
-  console.log(token)
+  const token = sessionStorage.getItem("accessToken");
+  // console.log(token)
 
-  const fd = new FormData()
-  fd.append("category_name" ,category_name) 
-  fd.append("URL" ,URL)
+  const fd = new FormData();
+  fd.append("category_name", category_name);
+  fd.append("URL", URL);
 
+  const postCat = async () => {
+    await axios
+      .post(`http://localhost:3046/api/v1/admin/addcategory`, fd, {
+        headers: {
+          Authorization: token,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+      })
 
-  const postCat = async()=>{
-    await axios.post( `http://localhost:3046/api/v1/admin/addcategory` , fd, {
-      headers :{
-        Authorization : token
-      }
-    })
-    .then((res)=>{
-      console.log(res)
-    })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-    .catch((err)=>{
-      console.log(err)
-    })
-  }
+  useEffect(() => {
+    axios
+      .get("http://localhost:3046/api/v1/admin/showcategory", {
+        headers: {
+          Authorization: token,
+        },
+      })
+      .then((res) => {
+        console.log(res.data.message);
+        setUserData(res.data.message);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
 
   return (
     <div>
@@ -44,20 +61,25 @@ export default function Catagary() {
             <p className="poste">Post Event</p>
           </p>
           <div className="fileblue">
-            <input type="file" onChange={(e)=>setUrl(e.target.files[0])} ></input>
+            <input
+              type="file"
+              onChange={(e) => setUrl(e.target.files[0])}
+            ></input>
             <p>Chose Pics</p>
           </div>
 
           <input
-          value={category_name}
-          onChange={(e)=>setCatname(e.target.value)}
+            value={category_name}
+            onChange={(e) => setCatname(e.target.value)}
             type="text"
             placeholder="Catagary name"
             id="olala"
             className="inpuvb"
           ></input>
 
-          <button onClick={postCat} className="btny">Post</button>
+          <button onClick={postCat} className="btny">
+            Post
+          </button>
         </div>
 
         <div className="allu2">
@@ -67,61 +89,20 @@ export default function Catagary() {
             <li>Name</li>
             <li>Action</li>
           </li>
-          <ul className="users">
-            <li>1</li>
-            <li className="roun">
-              <img src="/img/boy.png" className="roun" />
-            </li>
-            <li>Prince</li>
-            <li>
-              <FontAwesomeIcon icon={faMessage} />
-              <FontAwesomeIcon icon={faDeleteLeft} />
-            </li>
-          </ul>
-          <ul className="users">
-            <li>2</li>
-            <li className="roun">
-              <img src="/img/boy.png" className="roun" />
-            </li>
-            <li>Prince</li>
-            <li>
-              <FontAwesomeIcon icon={faMessage} />
-              <FontAwesomeIcon icon={faDeleteLeft} />
-            </li>
-          </ul>
-          <ul className="users">
-            <li>3</li>
-            <li className="roun">
-              <img src="/img/boy.png" className="roun" />
-            </li>
-            <li>Prince</li>
-            <li>
-              <FontAwesomeIcon icon={faMessage} />
-              <FontAwesomeIcon icon={faDeleteLeft} />
-            </li>
-          </ul>
-          <ul className="users">
-            <li>4</li>
-            <li className="roun">
-              <img src="/img/boy.png" className="roun" />
-            </li>
-            <li>Prince</li>
-            <li>
-              <FontAwesomeIcon icon={faMessage} />
-              <FontAwesomeIcon icon={faDeleteLeft} />
-            </li>
-          </ul>
-          <ul className="users">
-            <li>5</li>
-            <li className="roun">
-              <img src="/img/boy.png" className="roun" />
-            </li>
-            <li>Prince</li>
-            <li>
-              <FontAwesomeIcon icon={faMessage} />
-              <FontAwesomeIcon icon={faDeleteLeft} />
-            </li>
-          </ul>
+
+          {userData.map((user, index) => (
+            <ul className="users">
+              <li>{index + 1}</li>
+              <li className="roun">
+                <img src={user.URL} className="roun" />
+              </li>
+              <li>{user.category_name}</li>
+              <li>
+                <FontAwesomeIcon icon={faMessage} />
+                <FontAwesomeIcon icon={faDeleteLeft} />
+              </li>
+            </ul>
+          ))}
         </div>
       </div>
     </div>

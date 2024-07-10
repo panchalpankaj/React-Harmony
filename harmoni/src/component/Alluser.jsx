@@ -1,12 +1,35 @@
-import React from 'react';
-import '../Css/Alluser.css';
-import AdminNavbar from './AdminNavbar';
+import React, { useEffect, useState } from "react";
+import "../Css/Alluser.css";
+import AdminNavbar from "./AdminNavbar";
+import axios from "axios";
+
 export default function Alluser() {
+  const [userdata, setData] = useState([]);
+
+  const token = sessionStorage.getItem(`accessToken`);
+  // console.log(token)
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3046/api/v1/admin/getalluser", {
+        headers: {
+          Authorization: token,
+        },
+      })
+      .then((res) => {
+        // console.log(res.data.data);
+        setData(res.data.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
+
   return (
     <div>
-      <AdminNavbar/>
-      <div className='allu'>
-        <li className='blackindex'>
+      <AdminNavbar />
+      <div className="allu">
+        <ul className="blackindex">
           <li>No</li>
           <li>Profile</li>
           <li>Name</li>
@@ -14,91 +37,22 @@ export default function Alluser() {
           <li>Gender</li>
           <li>Phone Numebr</li>
           <li>Action</li>
-        </li>
-        <ul className='users'>
-          <li>1</li>
-          <li className='roun'><img src='/img/boy.png' className='roun'/></li>
-          <li>Prince</li>
-          <li>abc@gmail.com</li>
-          <li>Male</li>
-          <li>9632589789</li>
-          <button className='unblock'>unBlock</button>
         </ul>
-        <ul className='users'>
-          <li>2</li>
-          <li className='roun'><img src='/img/boy.png' className='roun'/></li>
-          <li>Hary</li>
-          <li>abc@gmail.com</li>
-          <li>Male</li>
-          <li>9636589789</li>
-          <button className='unblock'>unBlock</button>
-        </ul>
-        <ul className='users'>
-          <li>3</li>
-          <li className='roun'><img src='/img/girl.png' className='roun'/></li>
-          <li>Lily</li>
-          <li>abc@gmail.com</li>
-          <li>Female</li>
-          <li>9632589789</li>
-          <button className='unblock'>unBlock</button>
-        </ul>
-        <ul className='users'>
-          <li>4</li>
-          <li className='roun'><img src='/img/boy.png' className='roun'/></li>
-          <li>Prince</li>
-          <li>abc@gmail.com</li>
-          <li>Male</li>
-          <li>9632589789</li>
-          <button className='unblock'>unBlock</button>
-        </ul>
-        <ul className='users'>
-          <li>5</li>
-          <li className='roun'><img src='/img/boy.png' className='roun'/></li>
-          <li>Prince</li>
-          <li>abc@gmail.com</li>
-          <li>Male</li>
-          <li>9632589789</li>
-          <button className='unblock'>unBlock</button>
-        </ul>
-        <ul className='users'>
-          <li>6</li>
-          <li className='roun'><img src='/img/girl.png' className='roun'/></li>
-          <li>keny</li>
-          <li>abc@gmail.com</li>
-          <li>Female</li>
-          <li>9632589789</li>
-          <button className='unblock'>unBlock</button>
-        </ul>
-        <ul className='users'>
-          <li>7</li>
-          <li className='roun'><img src='/img/boy.png' className='roun'/></li>
-          <li>Prince</li>
-          <li>abc@gmail.com</li>
-          <li>Male</li>
-          <li>9632589789</li>
-          <button className='unblock'>unBlock</button>
-        </ul>
-        <ul className='users'>
-          <li>8</li>
-          <li className='roun'><img src='/img/boy.png' className='roun'/></li>
-          <li>Prince</li>
-          <li>abc@gmail.com</li>
-          <li>Male</li>
-          <li>9632589789</li>
-          <button className='unblock'>unBlock</button>
-        </ul>
-        <ul className='users'>
-          <li>1</li>
-          <li className='roun'><img src='/img/boy.png' className='roun'/></li>
-          <li>Prince</li>
-          <li>abc@gmail.com</li>
-          <li>Male</li>
-          <li>9632589789</li>
-          <button className='unblock'>unBlock</button>
-        </ul>
-      
-        
+
+        {userdata.map((user, index) => (
+          <ul className="users">
+            <li>{index + 1}</li>
+            <li className="roun">
+              <img src={user.avatar} className="roun" />
+            </li>
+            <li>{user.fullName}</li>
+            <li>{user.email}</li>
+            <li>{user.gender}</li>
+            <li>{user.mobile_no}</li>
+            <button className="unblock">unBlock</button>
+          </ul>
+        ))}
       </div>
     </div>
-  )
+  );
 }

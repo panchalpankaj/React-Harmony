@@ -82,7 +82,7 @@ const login = async (req, res) => {
                 .json(
                     {
                         success: false,
-                        message: "Invalid admin credentials"
+                        message: "Invalid password credentials"
                     }
                 )
         }

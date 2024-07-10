@@ -14,6 +14,7 @@ export default function Admin() {
   const login = async (e) => {
     e.preventDefault();
     const data = { email, password };
+    
     axios
       .post(`http://localhost:3046/api/v1/admin/login`, data)
       .then((res) => {
@@ -24,6 +25,7 @@ export default function Admin() {
       })
       .catch((e) => {
         console.log(e);
+        alert("Invalid");
       });
   };
 
@@ -60,10 +62,8 @@ export default function Admin() {
           />
           <p className="rememyu">Remember me</p>
         </label>
-        <button className="logbtnl">
-          <p className="lo" onClick={login}>
-            Login
-          </p>
+        <button className="logbtnl" onClick={login}>
+          <p className="lo">Login</p>
         </button>
       </div>
     </div>
