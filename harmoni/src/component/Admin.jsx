@@ -14,7 +14,7 @@ export default function Admin() {
   const login = async (e) => {
     e.preventDefault();
     const data = { email, password };
-    
+
     axios
       .post(`http://localhost:3046/api/v1/admin/login`, data)
       .then((res) => {

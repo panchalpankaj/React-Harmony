@@ -13,6 +13,7 @@ import {
   faWatchmanMonitoring,
 } from "@fortawesome/free-brands-svg-icons";
 
+
 export default function AdminNavbar() {
   const [isNavVisible, setIsNavVisible] = useState(false);
   const Navigate = useNavigate();
@@ -20,6 +21,11 @@ export default function AdminNavbar() {
   const toggleNav = () => {
     setIsNavVisible(!isNavVisible);
   };
+
+ const logout = ()=>{
+  sessionStorage.removeItem(`accessToken`)
+  Navigate("/")
+ }
 
   return (
     <div className="hola">
@@ -46,12 +52,15 @@ export default function AdminNavbar() {
         </ul>
             <hr />
         <p className="cnt">Authantication</p>
+
+      
         <ul className="linkse">
-          <li onClick={() => Navigate("/admin/alluser")} className="los hover:text-green-500">
+          <li onClick={logout} className="los hover:text-green-500">
             <FontAwesomeIcon icon={faOpensuse} className="ic " />
             Log out
           </li>
           </ul>
+
         </div>
        
         

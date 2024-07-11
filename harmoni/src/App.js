@@ -17,6 +17,7 @@ import AddEvent from "./component/AddEvent";
 import Profile from "./component/Profile";
 import Catagary from "./component/Catagary";
 import Passwordchange from "./component/Passwordchange";
+
 function App() {
   return (
     <BrowserRouter>
@@ -39,7 +40,7 @@ function App() {
         <Route path="/admin/profile" element={<Profile />}></Route>
         <Route path="/admin/catagary" element={<Catagary />}></Route>
         <Route path="admin/profile/password" element={<Passwordchange />}></Route>
-       
+               
       </Routes>
     </BrowserRouter>
   );

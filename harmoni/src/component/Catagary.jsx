@@ -58,7 +58,7 @@ export default function Catagary() {
         <div className="folms">
           <p className="roundfg">
             <FontAwesomeIcon icon={faLock} className="locks" />
-            <p className="poste">Post Event</p>
+            <p className="poste">Post Catagary</p>
           </p>
           <div className="fileblue">
             <input

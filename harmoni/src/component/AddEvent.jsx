@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdminNavbar from "./AdminNavbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
@@ -15,6 +15,8 @@ export default function AddEvent() {
   const [description, setDesc] = useState("");
   const [category_name, setCat_name] = useState("");
   const [image, setImgs] = useState("");
+
+  const [userData, setUserData] = useState([]);
 
   const tokan = sessionStorage.getItem("accessToken");
   // console.log(tokan);
@@ -47,6 +49,22 @@ export default function AddEvent() {
         console.log(e);
       });
   };
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3046/api/v1/admin/showcategory`, {
+        headers: {
+          Authorization: tokan,
+        },
+      })
+      .then((res) => {
+        // console.log(res.data.message);
+        setUserData(res.data.message);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <div>
@@ -103,11 +121,10 @@ export default function AddEvent() {
           aria-label="Default select example"
           onChange={(e) => setCat_name(e.target.value)}
         >
-          <option value="one">One</option>
-          <option value="two">Two</option>
-          <option value="three">Three</option>
+         {userData.map((user) => (     
+          <option >{user.category_name}</option>    
+        ))}
         </select>
-
         <input
           type="text"
           placeholder="Location"
