@@ -15,10 +15,10 @@ export default function Navbar() {
     setMenuVisible(!menuVisible);
   };
 
-  const handleNavigation = (path) => {
-    setMenuVisible(false);
-    navigate(path);
-  };
+  // const handleNavigation = (path) => {
+  //   setMenuVisible(false);
+  //   navigate(path);
+  // };
 
   const tokan = sessionStorage.getItem(`accessToken`);
 
@@ -30,8 +30,8 @@ export default function Navbar() {
         },
       })
       .then((res) => {
-        console.log(res);
-        setuserData(res);
+        console.log(res.data.data);
+        setuserData(res.data.data);
       })
       .catch((err) => {
         console.log(err);
@@ -64,24 +64,36 @@ export default function Navbar() {
           </ul>
         </div>
 
-        <div className="asdfg">
-          <div className="hamburger" onClick={toggleMenu}>
-            <FontAwesomeIcon icon={faBars} />
+        {userData ? (
+          <div className="text-xl p-2 mr-3 flex">
+            <img
+              src={userData.avatar}
+              className="size-10 rounded-full mr-2"
+            ></img>
+            {userData.fullName}
           </div>
+        ) : (
+          <div className="asdfg">
+            <div className="hamburger" onClick={toggleMenu}>
+              <FontAwesomeIcon icon={faBars} />
+            </div>
 
-          <div className="Button">
-            <ul className="menu">
-              <li className="menu-li">
-                <button
-                  type="button"
-                  className="nav-btn bg-yellow-400 text-gray-700 hover:bg-yellow-200"
-                >
-                  <Link to={"/Signin"}>Sign In</Link>
-                </button>
-              </li>
-            </ul>
+            <div className="Button">
+              <ul className="menu">
+                <li className="menu-li">
+                <Link to={"/Signin"}>
+                  <button
+                    type="button"
+                    className="nav-btn bg-yellow-400 text-gray-700 hover:bg-yellow-200"
+                  >
+                    Sign In
+                  </button>
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );
