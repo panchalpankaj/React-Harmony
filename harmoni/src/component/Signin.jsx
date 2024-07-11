@@ -20,6 +20,8 @@ export default function Signin() {
       .post(`http://localhost:3046/api/v1/users/login`, data)
       .then((res) => {
         console.log(res);
+        sessionStorage.setItem('accessToken',res.data.accessToken);
+        Navigate('/')
       })
       .catch((err) => {
         console.log(err);

@@ -25,12 +25,12 @@ export default function Homes() {
       <Navbar />
       <FontAwesomeIcon icon="fa-regular fa-eye" />
       <div className="homepage">
-        <img src="./img/space.jpg" alt="HomePage" className="homePageImg" />
-
+        <img src="./img/night.jpg" alt="HomePage" className="homePageImg" />
+             
         <h2 className="pp">
           One Stop Event <br /> Planner
         </h2>
-        <p className="home-para">
+        <p className="home-para size-3 font-bold">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rerum velit
           architecto maxime suscipit, maiores optio reiciendis nemo
           reprehenderit in tempore magnam commodi laborum itaque at voluptate ab

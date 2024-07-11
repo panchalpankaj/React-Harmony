@@ -35,14 +35,15 @@ export default function Admin() {
 
   return (
     <div>
-      <img src="/img/space1.jpg" className="admin" />
-      <div className="formw">
+      <img src="/img/space_2.jpg" className="admin" />
+      <div className="formw border-2 rounded bg-slate-200 opacity-80 z-0">
+        <div className="z-10 opacity-100">
         <FontAwesomeIcon icon={faLock} id="locku" />
-        <p className="logs">LOGIN</p>
+        <p className="logs text-gray-700">LOGIN</p>
         <input
           type="text"
           placeholder="Email"
-          className="inpus"
+          className="inpus text-black"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -60,11 +61,12 @@ export default function Admin() {
             onChange={handelCheck}
             className="checkboxyu"
           />
-          <p className="rememyu">Remember me</p>
+          <p className="rememyu text-gray-800">Remember me</p>
         </label>
         <button className="logbtnl" onClick={login}>
           <p className="lo">Login</p>
         </button>
+      </div>
       </div>
     </div>
   );

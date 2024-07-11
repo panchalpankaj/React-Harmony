@@ -12,7 +12,7 @@
     height: 35px;
     background-color: black;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     color: white;
     padding: 5px;
     padding-left: 0px;

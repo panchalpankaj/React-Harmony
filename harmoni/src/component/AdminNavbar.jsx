@@ -66,19 +66,19 @@ export default function AdminNavbar() {
         
       </div>
 
-      <div className="hor-nav">
+      <div className="hor-nav bg-slate-400">
         <FontAwesomeIcon
           icon={faBars}
           className="hamburger-icon"
           onClick={toggleNav}
         />
-        <h3>Admin</h3>
-        <h5 className="jfry">
+        <h3 className="text-gray-800 mt-2 ml-4 font-semibold text-xl">Admin</h3>
+        <h5 className="jfry text-gray-800 mt-1 ml-2 font-semibold ">
           <ul className="pidl cursor-pointer ">
             <li className="roun" onClick={() => Navigate("/admin/profile")}>
               {" "}
-              <li className="roun">
-                <img src="/img/boy.png" className="roun" />
+              <li className="roun pb-0">
+                <img src="/img/boy.png" className="roun mb-5" />
               </li>
             </li>
           </ul>
