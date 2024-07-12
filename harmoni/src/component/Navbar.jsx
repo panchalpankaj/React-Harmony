@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from "react";
 import "../Css/Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
-import { faBars, faCaretDown, faDroplet, faHamburger } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
-import { Dropdown, DropdownButton } from 'react-bootstrap';
-
 
 export default function Navbar() {
   const [menuVisible, setMenuVisible] = useState(false);
   const [userData, setuserData] = useState({});
-
+  const [dropdownVisible, setDropdownVisible] = useState(false);
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
   };
 
- 
+  const toggleDropdown = () => {
+    setDropdownVisible(!dropdownVisible);
+  };
 
   const tokan = sessionStorage.getItem(`accessToken`);
 
@@ -38,7 +40,6 @@ export default function Navbar() {
 
   return (
     <>
-    
       <div className="navbar">
         <div className="logo">
           <img src="/img/logo.png" alt="Logo" className=" mr-5 h-12 w-60 " />
@@ -64,15 +65,30 @@ export default function Navbar() {
         </div>
 
         {userData ? (
-          <div className="text-xl p-2 mr-3 flex">
+          <div className="text-xl p-2 mr-3 flex relative">
             <img
               src={userData.avatar}
-              className="size-10 rounded-full mr-2"
+              className="size-10 rounded-full mr-2 cursor-pointer"
+              onClick={toggleDropdown}
             ></img>
-            <div>
-            {userData.fullName}
-           
+            <div className="cursor-pointer" onClick={toggleDropdown}>
+              {userData.fullName}
             </div>
+            {dropdownVisible && (
+              <div className="absolute top-full right-0 bg-white shadow-lg rounded-md mt-2 w-48">
+                <ul className="py-2">
+                  <li className="px-4 py-2 bg-gray-800 cursor-pointer">
+                    Account
+                  </li>
+                  <li className="px-4 py-2 bg-gray-800 cursor-pointer">
+                    Booking
+                  </li>
+                  <li className="px-4 py-2 bg-gray-800 cursor-pointer">
+                    Logout
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
         ) : (
           <div className="asdfg">
@@ -83,13 +99,13 @@ export default function Navbar() {
             <div className="Button">
               <ul className="menu">
                 <li className="menu-li">
-                <Link to={"/Signin"}>
-                  <button
-                    type="button"
-                    className="nav-btn bg-yellow-400 text-gray-700 hover:bg-yellow-200"
-                  >
-                    Sign In
-                  </button>
+                  <Link to={"/Signin"}>
+                    <button
+                      type="button"
+                      className="nav-btn bg-yellow-400 text-gray-700 hover:bg-yellow-200"
+                    >
+                      Sign In
+                    </button>
                   </Link>
                 </li>
               </ul>
