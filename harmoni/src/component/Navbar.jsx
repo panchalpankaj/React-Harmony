@@ -11,7 +11,9 @@ export default function Navbar() {
   const [menuVisible, setMenuVisible] = useState(false);
   const [userData, setuserData] = useState({});
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [logout,setLogout] = useState('');
 
+  const Navigate = useNavigate('');
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
   };
@@ -20,7 +22,8 @@ export default function Navbar() {
     setDropdownVisible(!dropdownVisible);
   };
 
-  const tokan = sessionStorage.getItem(`accessToken`);
+  const tokan = sessionStorage.getItem('accessToken');
+  // console.log(tokan)
 
   useEffect(() => {
     axios
@@ -37,6 +40,28 @@ export default function Navbar() {
         console.log(err);
       });
   }, []);
+
+  const Logout = async(e) => {
+    e.preventDefault(); 
+
+   await axios.post(`http://localhost:3046/api/v1/users/logout`,{
+      headers: {
+        Authorization: tokan,
+      }
+
+    })
+    .then((res) => {
+      console.log(res)
+      sessionStorage.removeItem('accessToken');
+      Navigate('/');
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+
+   
+  }
+
 
   return (
     <>
@@ -77,14 +102,14 @@ export default function Navbar() {
             {dropdownVisible && (
               <div className="absolute top-full right-0 bg-white shadow-lg rounded-md mt-2 w-48">
                 <ul className="py-2">
-                  <li className="px-4 py-2 bg-gray-800 cursor-pointer">
-                    Account
+                  <li className="px-4 py-2 bg-gray-800 cursor-pointer hover:bg-green-500 transition duration-500">
+                   <Link to = {'/Account'}>Account</Link> 
                   </li>
-                  <li className="px-4 py-2 bg-gray-800 cursor-pointer">
-                    Booking
+                  <li className="px-4 py-2 bg-gray-800 cursor-pointer hover:bg-green-500 transition duration-700">
+                     <Link to={'/mybooking'}>Booking</Link>
                   </li>
-                  <li className="px-4 py-2 bg-gray-800 cursor-pointer">
-                    Logout
+                  <li className="px-4 py-2 bg-gray-800 cursor-pointer hover:bg-red-600 transition duration-300">
+                 <button onClick={Logout}>Logout</button>   
                   </li>
                 </ul>
               </div>

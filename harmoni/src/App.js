@@ -17,6 +17,10 @@ import AddEvent from "./component/AddEvent";
 import Profile from "./component/Profile";
 import Catagary from "./component/Catagary";
 import Passwordchange from "./component/Passwordchange";
+import Acount from "./component/User/Acount";
+import ChangePass from "./component/User/Changepass";
+import ChangeUserdetail from "./component/User/Changedetail";
+import Mybooking from "./component/User/Myboking";
 
 function App() {
   return (
@@ -40,6 +44,10 @@ function App() {
         <Route path="/admin/profile" element={<Profile />}></Route>
         <Route path="/admin/catagary" element={<Catagary />}></Route>
         <Route path="admin/profile/password" element={<Passwordchange />}></Route>
+        <Route path="/Account" element={<Acount />}></Route>
+        <Route path="/Changepass" element={<ChangePass/>}></Route>
+        <Route path="/Changedetail" element={<ChangeUserdetail/>}></Route>
+        <Route path="/mybooking" element={<Mybooking/>}></Route>
                
       </Routes>
     </BrowserRouter>
