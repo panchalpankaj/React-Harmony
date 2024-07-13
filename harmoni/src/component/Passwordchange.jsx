@@ -3,6 +3,7 @@ import "../Css/Passwordchange.css";
 import AdminNavbar from "./AdminNavbar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function Passwordchange() {
   const Navigator = useNavigate();
@@ -25,6 +26,13 @@ export default function Passwordchange() {
       })
       .then((res) => {
         console.log(res);
+        if(res.data.success == true)
+        {
+          toast.success(res.data.message)
+        }
+        else{
+          toast.error(res.data.message)
+        }
       })
       .catch((err) => {
         console.log(err);

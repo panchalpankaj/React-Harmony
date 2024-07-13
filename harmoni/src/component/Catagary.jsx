@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDeleteLeft, faLock } from "@fortawesome/free-solid-svg-icons";
 import { faMessage } from "@fortawesome/free-regular-svg-icons";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function Catagary() {
   const [category_name, setCatname] = useState("");
@@ -28,6 +29,13 @@ export default function Catagary() {
       })
       .then((res) => {
         console.log(res);
+        if(res.data.success == true)
+        {
+          toast.success(res.data.message)
+        }
+        else{
+          toast.error(res.data.message)
+        }
       })
 
       .catch((err) => {

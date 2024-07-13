@@ -3,7 +3,7 @@ import Navbar from "../Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-
+import { toast } from "react-toastify";
 
 
 function Changedetail() {
@@ -50,6 +50,12 @@ function Changedetail() {
     })
     .then((res) => {
       console.log(res)
+      if(res.data.success == true){
+      toast.success(res.data.message)
+      }
+      else{
+        toast.error(res.data.message)
+      }
     })
     .catch((err) => {
       console.error(err)

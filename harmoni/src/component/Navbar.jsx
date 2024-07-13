@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function Navbar() {
   const [menuVisible, setMenuVisible] = useState(false);
@@ -54,6 +55,8 @@ export default function Navbar() {
       console.log(res)
       sessionStorage.removeItem('accessToken');
       Navigate('/');
+      toast.success("User Logout Succesfully");
+
     })
     .catch((err) => {
       console.log(err)

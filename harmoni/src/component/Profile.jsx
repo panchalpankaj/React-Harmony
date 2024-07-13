@@ -21,6 +21,7 @@ export default function Profile() {
       .then((res) => {
         console.log(res.data.data);
         setadminInfo(res.data.data);
+        
       })
       .catch((e) => {
         console.log(e);

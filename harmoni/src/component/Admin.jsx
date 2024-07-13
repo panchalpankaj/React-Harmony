@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function Admin() {
   const [email, setEmail] = useState("");
@@ -17,15 +18,23 @@ export default function Admin() {
 
     axios
       .post(`http://localhost:3046/api/v1/admin/login`, data)
+
       .then((res) => {
         console.log(res);
         console.log(res.data.accessToken);
         sessionStorage.setItem("accessToken", res.data.accessToken);
         Navigate("/admin/alluser");
+
+        if(res.data.success == true)
+        {
+          toast.success(res.data.message)
+        }
+        else{
+          toast.error(res.data.message)
+        }
       })
       .catch((e) => {
         console.log(e);
-        alert("Invalid");
       });
   };
 
