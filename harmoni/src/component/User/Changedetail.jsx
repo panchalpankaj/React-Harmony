@@ -3,19 +3,22 @@ import Navbar from "../Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
+
 
 function Changedetail() {
   const [userData, setuserData] = useState({});
-
-  const [fullName,setFullname] = useState()
-  const [email,setEmail] = useState();
-  const [gender,setgender] = useState();
+  const [fullName,setFullname] = useState(userData.fullName)
+  const [email,setEmail] = useState(userData.email);
+  const [gender,setgender] = useState(userData.gender);
+  
+  const Navigate = useNavigate('');
 
   const fd = new FormData();
   fd.append('fullName',fullName)
   fd.append('email',email)
   fd.append('gender',gender)
-
+  
   const tokan = sessionStorage.getItem(`accessToken`);
 
   useEffect(() => {
@@ -28,6 +31,9 @@ function Changedetail() {
       .then((res) => {
         // console.log(res.data.data)
         setuserData(res.data.data);
+        setFullname(res.data.data.fullName);
+        setEmail(res.data.data.email);
+        setgender(res.data.data.gender);
       })
       .catch((err) => {
         console.error(err);
@@ -67,9 +73,9 @@ function Changedetail() {
             <label>Name</label>
             <input
               type="text"
-              placeholder="full Name"
+              placeholder={userData.fullName}
               className="p-2 rounded-sm text-black"
-              value={userData.fullName}
+              value={fullName}
               onChange={(e) => setFullname(e.target.value)}
             ></input>
           </div>
@@ -77,25 +83,25 @@ function Changedetail() {
             <label>Email</label>
             <input
               type="email"
-              placeholder="email"
+              placeholder={userData.email}
               className="p-2 rounded-sm text-black"
-              value={userData.email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value ) }
             ></input>
           </div>
           <div className="flex flex-col text-white gap-2 mt-2">
             <label>Gender</label>
             <div className="flex gap-3">
               <label>
-                <input type="radio" name="Gender" value={userData.gender} onChange={(e) => setgender(e.target.value)}/>
+                <input type="radio" name="Gender" value='male' onChange={(e) => setgender(e.target.value)}/>
                 Male
               </label>
               <label>
-                <input type="radio" name="Gender" value={userData.gender} onChange={(e) => setgender(e.target.value)}/>
+                <input type="radio" name="Gender" value='female' onChange={(e) => setgender(e.target.value)}/>
                 Female
               </label>
               <label>
-                <input type="radio" name="Gender" value={userData.gender} onChange={(e) => setgender(e.target.value)}/>
+                <input type="radio" name="Gender" value='other' onChange={(e) => setgender(e.target.value)}/>
                 Other
               </label>
             </div>
@@ -104,9 +110,8 @@ function Changedetail() {
             <label>Phone Number</label>
             <input
               type="text"
-              placeholder="Number"
-              className="p-2 rounded-sm text-black"
-              value={userData.mobile_no}
+              placeholder={userData.mobile_no}
+              className="p-2 rounded-sm text-black"              
             ></input>
           </div>
           <div className="flex flex-col text-white  mt-2">
@@ -120,8 +125,10 @@ function Changedetail() {
             type="button"
             className="bg-blue-500 text-white font-semibold rounded-md p-1 mt-3 hover:bg-green-500 transition duration-500 px-5 mb-5"
             onClick={change}
+            
           >
-            Change
+             Change
+          
           </button>
 
           <p className="text-white font-semibold mb-3">
@@ -134,3 +141,13 @@ function Changedetail() {
 }
 
 export default Changedetail;
+
+
+
+
+
+
+
+
+
+
