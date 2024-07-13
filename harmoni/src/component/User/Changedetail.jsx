@@ -3,7 +3,7 @@ import Navbar from "../Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-import {useNavigate} from "react-router-dom";
+
 
 
 function Changedetail() {
@@ -12,7 +12,7 @@ function Changedetail() {
   const [email,setEmail] = useState(userData.email);
   const [gender,setgender] = useState(userData.gender);
   
-  const Navigate = useNavigate('');
+ 
 
   const fd = new FormData();
   fd.append('fullName',fullName)
