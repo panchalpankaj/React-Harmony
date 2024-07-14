@@ -22,9 +22,9 @@ export default function Signin() {
       .then((res) => {
         console.log(res);
         sessionStorage.setItem("accessToken", res.data.accessToken);
-        Navigate("/");
         if (res.data.success == true) {
           toast.success(res.data.message);
+          Navigate("/");
         } else {
           toast.error(res.data.message);
         }

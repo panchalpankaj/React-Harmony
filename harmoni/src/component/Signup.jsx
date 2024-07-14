@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function Signup() {
   const [selectOption, setSelectOption] = useState("");
@@ -32,10 +33,19 @@ export default function Signup() {
     axios
       .post(`http://localhost:3046/api/v1/users/register`, data)
       .then((r) => {
+        if(r.data.success == true)
+        {
         console.log(r);
+        toast.success(r.data.message)
+        Navigate("/")
+        }
+        else{
+          toast.error(r.data.message)
+        }
       })
       .catch((e) => {
         console.log(e);
+        toast.error(e.message)
       });
   };
 

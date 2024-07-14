@@ -28,6 +28,7 @@ export default function Admin() {
         if(res.data.success == true)
         {
           toast.success(res.data.message)
+          Navigate('/');
         }
         else{
           toast.error(res.data.message)

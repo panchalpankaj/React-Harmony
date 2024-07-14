@@ -49,7 +49,7 @@ function Changedetail() {
       }
     })
     .then((res) => {
-      console.log(res)
+      // console.log(res)
       if(res.data.success == true){
       toast.success(res.data.message)
       }

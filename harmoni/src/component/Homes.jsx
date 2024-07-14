@@ -23,7 +23,6 @@ export default function Homes() {
     <>
      
       <Navbar />
-      <FontAwesomeIcon icon="fa-regular fa-eye" />
       <div className="homepage">
         <img src="./img/night.jpg" alt="HomePage" className="homePageImg" />
              

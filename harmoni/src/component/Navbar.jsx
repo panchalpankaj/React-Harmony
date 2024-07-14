@@ -39,23 +39,36 @@ export default function Navbar() {
       })
       .catch((err) => {
         console.log(err);
+        toast.error(err);
       });
   }, []);
+
+
 
   const Logout = async(e) => {
     e.preventDefault(); 
 
-   await axios.post(`http://localhost:3046/api/v1/users/logout`,{
+    const formData = new FormData();
+    formData.append('mobile_no', 'mobile_no');
+    formData.append('password', 'password');
+
+    await axios.post(`http://localhost:3046/api/v1/users/logout`,formData,{
       headers: {
-        Authorization: tokan,
+        Authorization: tokan,   
       }
 
     })
     .then((res) => {
       console.log(res)
-      sessionStorage.removeItem('accessToken');
-      Navigate('/');
-      toast.success("User Logout Succesfully");
+      if(res.data.success == true)
+        {
+          sessionStorage.removeItem('accessToken');
+          toast.success(res.data.message);
+          window.location.reload(); 
+          Navigate('/');
+      }else{
+        toast.error(res.data.message)
+      }
 
     })
     .catch((err) => {
