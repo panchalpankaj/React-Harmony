@@ -23,12 +23,12 @@ export default function Admin() {
         console.log(res);
         console.log(res.data.accessToken);
         sessionStorage.setItem("accessToken", res.data.accessToken);
-        Navigate("/admin/alluser");
+        
 
         if(res.data.success == true)
         {
           toast.success(res.data.message)
-          Navigate('/');
+          Navigate("/admin/alluser");
         }
         else{
           toast.error(res.data.message)
