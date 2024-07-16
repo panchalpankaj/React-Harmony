@@ -6,7 +6,7 @@ import Navbar from "./Navbar.jsx";
 import Imagetextfront from "./PropsImagetextfront.jsx";
 export default function Gallery() {
   return (
-    <div>
+    <div className="overflow-hidden">
       <Navbar/>
       
       <Imagetextfront first="HARMONI EVENTS" sec={"HARMONI"} third={"GALLERY"} forth={"Harmoni"} fifth={"Gallery"}/>

@@ -4,6 +4,7 @@ import Foter from "./Foter.jsx";
 import Navbar from "./Navbar.jsx";
 import Imagetextfront from "./PropsImagetextfront.jsx";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function Contact() {
   const [fullName, setfullName] = useState("");
@@ -17,7 +18,14 @@ export default function Contact() {
     axios
       .post(`http://localhost:3046/api/v1/contact/sendmessage`, data)
       .then((res) => {
+        if(res.data.success == true)
+        {
         console.log(res);
+        toast.success(res.data.message)
+        }
+        else{
+          toast.error(res.data.message)
+        }
       })
       .catch((e) => {
         console.log(e);

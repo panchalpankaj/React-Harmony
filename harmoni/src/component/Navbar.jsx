@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../Css/Navbar.css";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  faBars,
-} from "@fortawesome/free-solid-svg-icons";
+import {faBars,} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -12,7 +10,7 @@ export default function Navbar() {
   const [menuVisible, setMenuVisible] = useState(false);
   const [userData, setuserData] = useState({});
   const [dropdownVisible, setDropdownVisible] = useState(false);
-  const [logout,setLogout] = useState('');
+  // const [logout,setLogout] = useState('');
 
   const Navigate = useNavigate('');
   const toggleMenu = () => {
@@ -34,7 +32,7 @@ export default function Navbar() {
         },
       })
       .then((res) => {
-        console.log(res.data.data);
+        // console.log(res.data.data);
         setuserData(res.data.data);
       })
       .catch((err) => {
@@ -62,10 +60,9 @@ export default function Navbar() {
       console.log(res)
       if(res.data.success == true)
         {
-          sessionStorage.removeItem('accessToken');
           toast.success(res.data.message);
-          window.location.reload(); 
           Navigate('/');
+          sessionStorage.removeItem('accessToken');
       }else{
         toast.error(res.data.message)
       }

@@ -8,7 +8,7 @@ const sendmessage = async (req, res) => {
             return res
                 .json(
                     {
-                        success: true,
+                        success: false,
                         message: "All fields are required",
                     }
                 )

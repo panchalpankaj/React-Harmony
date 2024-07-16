@@ -42,7 +42,7 @@ export default function Events() {
                   <ul className="llm">
                     <li
                       className="linked cursor-pointer"
-                      onClick={() => Navigater("/Events/eventes")}
+                      onClick={() => Navigater("/Events/eventes" , { state : user} ) }
                     >
                       {user.category_name}
                     </li>
@@ -58,3 +58,13 @@ export default function Events() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+

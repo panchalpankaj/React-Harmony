@@ -7,7 +7,7 @@ function Myboking() {
         <Navbar/>
       <div className='bg-slate-900 h-screen'>
         <div className='flex flex-wrap gap-4 justify-around pt-5'>
-            <div className='bg-gray-300 w-2/5 flex gap-1 justify-between'>
+            <div className='bg-gray-300 w-2/5 flex gap-1 justify-between rounded-lg'>
                <div className='flex flex-col justify-center'>
                 <img src='https://media.istockphoto.com/id/1638392085/photo/green-trees-shaped-like-qr-code.jpg?s=2048x2048&w=is&k=20&c=9OSmfFsUw94Xic5l6yhV_xljbdsskBLBhozykd9C0DY=' className='size-40'/>
                 <button type='button' className='text-white bg-blue-600 '>Download</button>
@@ -43,7 +43,7 @@ function Myboking() {
                </div>
                
             </div>
-            <div className='bg-gray-300 w-2/5 flex gap-1 justify-between'>
+            <div className='bg-gray-300 w-2/5 flex gap-1 justify-between rounded-lg'>
                <div className='flex flex-col justify-center'>
                 <img src='https://media.istockphoto.com/id/1638392085/photo/green-trees-shaped-like-qr-code.jpg?s=2048x2048&w=is&k=20&c=9OSmfFsUw94Xic5l6yhV_xljbdsskBLBhozykd9C0DY=' className='size-40'/>
                 <button type='button' className='text-white bg-blue-600 '>Download</button>
@@ -79,7 +79,7 @@ function Myboking() {
                </div>
                
             </div>
-            <div className='bg-gray-300 w-2/5 flex gap-1 justify-between'>
+            <div className='bg-gray-300 w-2/5 flex gap-1 justify-between rounded-lg'>
                <div className='flex flex-col justify-center'>
                 <img src='https://media.istockphoto.com/id/1638392085/photo/green-trees-shaped-like-qr-code.jpg?s=2048x2048&w=is&k=20&c=9OSmfFsUw94Xic5l6yhV_xljbdsskBLBhozykd9C0DY=' className='size-40'/>
                 <button type='button' className='text-white bg-blue-600 '>Download</button>
