@@ -2,43 +2,38 @@ import React, { useEffect, useState } from "react";
 import "../Css/eve.css";
 import Foter from "../component/Foter";
 import Navbar from "./Navbar";
-import axios from "axios";
-
+import { useLocation } from "react-router-dom";
 
 export default function Eve() {
+ 
+  const { state : user} = useLocation();
 
-const [userData,setUserData] = useState([])
-  useEffect(()=>{
-    axios.get(`http://localhost:3046/api/v1/admin/showallevents`)
-    .then((res)=>{
-      console.log(res.data.data)
-      setUserData(res.data.data)
-    })
-    .catch((err)=>{
-      console.log(err)
-    })
-  },[])
 
   return (
     <div>
-      <Navbar/>
-      {userData && (
-      <div class="card mb-3">
-        <img src={userData.image} class="card-img-top" alt="..." />
-        <div class="card-body">
-          <div className="cont-txt">
-            <div>
-              <div className="txtui">{userData.description}</div>
-              <p>{userData.location} | {userData.title} | {userData.s_date} | {userData.e_date}</p>
-            </div>
+      <Navbar />
+      {user && (
+        <div class="card mb-3">
+          <img src={user.image} class="card-img-top" alt="..." />
+          <div class="card-body">
+            <div className="cont-txt">
+              <div>
+                <div className="txtui">{user.description}</div>
+                <p>
+                  {user.location} | {user.title} | {user.s_date} |
+                  {user.e_date}
+                </p>
+              </div>
 
-            <button className="eve-btn">Book</button>
+              <button className="eve-btn rounded-md hover:bg-orange-700 transition duration-100">Book</button>
+            </div>
           </div>
-         
+          <p className="adrdat">
+            {user.e_date} | ⚲ {user.location} |{" "}
+            <span className="bol">${user.price} onWord</span>
+          </p>
         </div>
-        <p className="adrdat">{userData.e_date} | ⚲ {userData.location} | <span className="bol">${userData.price} onWord</span></p>
-      </div>  
-     )}
+      )}
       <Foter />
     </div>
   );

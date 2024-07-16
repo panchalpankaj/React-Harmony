@@ -33,7 +33,7 @@ export default function Events() {
       </div>
 
       <div class="row row-cols-1 row-cols-md-3 g-5 events">
-        {userData.map((user) => (
+        {userData?.map((user) => (
           <div class="col">
             <div class="card">
               <img src={user.URL} class="card-img-top" alt="..." />

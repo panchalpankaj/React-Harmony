@@ -16,7 +16,7 @@ export default function AddEvent() {
   const [description, setDesc] = useState("");
   const [category_name, setCat_name] = useState("");
   const [image, setImgs] = useState("");
-
+  
   const [userData, setUserData] = useState([]);
 
   const tokan = sessionStorage.getItem("accessToken");
@@ -33,6 +33,8 @@ export default function AddEvent() {
   fd.append("description", description);
   fd.append("category_name", category_name);
   fd.append("image", image);
+  
+  
 
   // console.log(fd);
 
@@ -134,6 +136,13 @@ export default function AddEvent() {
           <option >{user.category_name}</option>    
         ))}
         </select>
+
+
+
+
+
+
+
         <input
           type="text"
           placeholder="Location"

@@ -9,25 +9,26 @@ export default function Eventes() {
   const [userData, setuserData] = useState();
   const {state } = useLocation();
 
-  // console.log(state._id , "state")
+  console.log(state._id , "state")
   
 
-  const Navigator = useNavigate("");
+  const Navigator = useNavigate();
 
   useEffect(() => {
     const data = {category_id : state._id}
+    
     axios
-      .post(`http://localhost:3046/api/v1/admin/showeventsbycategory` , data)
+    .post(`http://localhost:3046/api/v1/admin/showeventsbycategory` , data)
       .then((res) => {
-        setuserData(res);
-        console.log(res);
+        setuserData(res.data.data);
+        console.log(res.data.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  console.log(userData , "userData")
+  console.log(userData)
 
   return (
     <div>
@@ -36,15 +37,15 @@ export default function Eventes() {
         <img src="/img/mountai-view.jpg" className="about-img" />
       </div>
 
-      {/* {userData.map((user) => (
+     {userData?.map((user) => (
         <div class="cardy flex flex-wrap flex-row">
-          <img src={user.image} class="card-img-top" alt="..." />
+          <img src={user?.image} class="card-img-top" alt="..." />
           <div class="card-body ">
             <p class="card-text">
               <ul className="llm cursor-pointer">
                 <li
                   onClick={() => {
-                    Navigator("/Events/eventes/eve");
+                    Navigator("/Events/eventes/eve" , {state : user});
                   }}
                 >
                   Click Hear For Boking
@@ -52,19 +53,17 @@ export default function Eventes() {
               </ul>
             </p>
             <p className="addr">
-              {user.description}
+              {user?.description}
               <br />
-              {user.location}
-              <br />₹{user.price} onword
+              {user?.location}
+              <br />₹{user?.price} onword
             </p>
           </div>
         </div>
-      ))} */}
+      ))} 
       <Foter />
     </div>
   );
 }
-
-
 
 
