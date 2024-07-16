@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import AdminNavbar from "./AdminNavbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,47 +15,38 @@ export default function AddEvent() {
   const [e_time, setE_time] = useState("");
   const [location, setLocation] = useState("");
   const [description, setDesc] = useState("");
-  const [category_name, setCat_name] = useState("");
+  const [category, setCategory] = useState({ name: "", id: "" });
   const [image, setImgs] = useState("");
-  
   const [userData, setUserData] = useState([]);
 
-  const tokan = sessionStorage.getItem("accessToken");
-  // console.log(tokan);
+  const token = sessionStorage.getItem("accessToken");
 
   const fd = new FormData();
-
   fd.append("title", title);
-  fd.append("s_data", s_date);
-  fd.append("e_data", e_date);
+  fd.append("s_date", s_date);
+  fd.append("e_date", e_date);
   fd.append("s_time", s_time);
   fd.append("e_time", e_time);
   fd.append("location", location);
   fd.append("description", description);
-  fd.append("category_name", category_name);
+  fd.append("category_name", category.name);
+  fd.append("category_id", category.id);
   fd.append("image", image);
-  
-  
-
-  // console.log(fd);
 
   const Postbtn = async () => {
     await axios
       .post(`http://localhost:3046/api/v1/admin/addevent`, fd, {
         headers: {
-          Authorization: tokan,
+          Authorization: token,
         },
       })
       .then((res) => {
         console.log(res);
-        if(res.data.success == true)
-        {
-          toast.success(res.data.message)
+        if (res.data.success === true) {
+          toast.success(res.data.message);
+        } else {
+          toast.error(res.data.message);
         }
-        else{
-          toast.error(res.data.message)
-        }
-
       })
       .catch((e) => {
         console.log(e);
@@ -65,11 +57,10 @@ export default function AddEvent() {
     axios
       .get(`http://localhost:3046/api/v1/admin/showcategory`, {
         headers: {
-          Authorization: tokan,
+          Authorization: token,
         },
       })
       .then((res) => {
-        // console.log(res.data.message);
         setUserData(res.data.message);
       })
       .catch((err) => {
@@ -86,16 +77,12 @@ export default function AddEvent() {
           <p className="poste">Post Event</p>
         </p>
         <div className="fileblue">
-          <input
-            type="file"
-            onChange={(e) => setImgs(e.target.files[0])}
-          ></input>
-          <p>Chose Pics</p>
+          <input type="file" onChange={(e) => setImgs(e.target.files[0])}></input>
+          <p>Choose Pics</p>
         </div>
-
         <input
           type="text"
-          placeholder="title"
+          placeholder="Title"
           className="inpuvb"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -126,23 +113,25 @@ export default function AddEvent() {
           value={e_time}
           onChange={(e) => setE_time(e.target.value)}
         ></input>
-
         <select
           className="form-select inpuvb"
           aria-label="Default select example"
-          onChange={(e) => setCat_name(e.target.value)}
+          onChange={(e) => {
+            const selectedCategory = userData.find(
+              (user) => user.category_name === e.target.value
+            );
+            setCategory({
+              name: selectedCategory.category_name,
+              id: selectedCategory._id,
+            });
+          }}
         >
-         {userData.map((user) => (     
-          <option >{user.category_name}</option>    
-        ))}
+          {userData.map((user) => (
+            <option key={user._id} value={user.category_name}>
+              {user.category_name}
+            </option>
+          ))}
         </select>
-
-
-
-
-
-
-
         <input
           type="text"
           placeholder="Location"
