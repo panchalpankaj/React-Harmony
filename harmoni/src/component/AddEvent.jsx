@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import AdminNavbar from "./AdminNavbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -77,7 +76,10 @@ export default function AddEvent() {
           <p className="poste">Post Event</p>
         </p>
         <div className="fileblue">
-          <input type="file" onChange={(e) => setImgs(e.target.files[0])}></input>
+          <input
+            type="file"
+            onChange={(e) => setImgs(e.target.files[0])}
+          ></input>
           <p>Choose Pics</p>
         </div>
         <input

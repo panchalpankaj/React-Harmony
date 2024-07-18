@@ -32,8 +32,9 @@ export default function Navbar() {
         },
       })
       .then((res) => {
-        // console.log(res.data.data);
         setuserData(res.data.data);
+        // console.log(res.data.data._id);
+        sessionStorage.setItem('UserID',res.data.data._id);
       })
       .catch((err) => {
         console.log(err);
@@ -63,6 +64,7 @@ export default function Navbar() {
           toast.success(res.data.message);
           Navigate('/');
           sessionStorage.removeItem('accessToken');
+          sessionStorage.removeItem(`UserID`)
       }else{
         toast.error(res.data.message)
       }

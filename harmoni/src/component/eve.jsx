@@ -1,36 +1,73 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../Css/eve.css";
 import Foter from "../component/Foter";
 import Navbar from "./Navbar";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function Eve() {
- 
-  const { state : user} = useLocation();
+  const { state: events } = useLocation();
 
+  const tokan = sessionStorage.getItem(`accessToken`);
+  console.log(tokan);
+
+  const userId = sessionStorage.getItem(`UserID`);
+  console.log(userId, "userID");
+
+  const EventId = events._id;
+  console.log(EventId, "EventID");
+
+  const book = async (e) => {
+    e.preventDefault();
+    const data = {userId,EventId};
+    await axios
+      .post(`http://localhost:3046/api/v1/users/booking`,data,
+        {
+          headers: {
+            Authorization: tokan,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        if (res.data.success === true) {
+          toast.success(res.data.message);
+        } else {
+          toast.error(res.data.message);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div>
       <Navbar />
-      {user && (
-        <div class="card mb-3">
-          <img src={user.image} class="card-img-top" alt="..." />
-          <div class="card-body">
-            <div className="cont-txt">
+      {events && (
+        <div class="card mb-0 bg-slate-400 italic font-semibold">
+          <img src={events.image} class="card-img-top" alt="..." />
+          <div class="card-body ">
+            <div className="cont-txt ">
               <div>
-                <div className="txtui">{user.description}</div>
+                <div className="txtui">{events.description}</div>
                 <p>
-                  {user.location} | {user.title} | {user.s_date} |
-                  {user.e_date}
+                  {events.location} | {events.title} | {events.s_date} |{events.e_date}
                 </p>
               </div>
 
-              <button className="eve-btn rounded-md hover:bg-orange-700 transition duration-100">Book</button>
+              <button
+                className="eve-btn rounded-md bg-green-600 text-white hover:bg-green-700 transition duration-200"
+                onClick={book}
+              >
+                Book
+              </button>
             </div>
           </div>
           <p className="adrdat">
-            {user.e_date} | ⚲ {user.location} |{" "}
-            <span className="bol">${user.price} onWord</span>
+            {events.e_date} | ⚲ {events.location} |{" "}
+            <span className="bol">${events.price} onWord</span>
           </p>
         </div>
       )}

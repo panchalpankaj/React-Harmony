@@ -8,7 +8,7 @@
   height: 100%;
   background-color: white;
   position: relative;
-  border-right: 1px solid gray;
+  border-right: 1px solid rgb(188, 186, 186);
   display: block;
   transition: transform 0.3s ease;
 }
@@ -125,9 +125,12 @@
 
   .sist {
     margin-top: 109px;
-    background-color: rgb(128, 128, 128,0.7);
+    background-color: black;
     height: 310px;
-    color: crimson;
+    color: white;
+    font-weight: 700;
     cursor: pointer;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
   }
 }

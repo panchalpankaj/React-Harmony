@@ -30,7 +30,7 @@ export default function AdminNavbar() {
   return (
     <div className="hola">
       <div className={`leftNav ${isNavVisible ? 'visible' : ''}`}>
-        <div className="sist pl-3 cursor-pointer">
+        <div className="sist pl-3 cursor-pointer opacity-90">
           <ul className="linkse">
             <li onClick={() => Navigate("/admin/alluser")} className="los hover:text-green-500">
               <FontAwesomeIcon icon={faListAlt} className="ic" />
