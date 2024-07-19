@@ -3,30 +3,42 @@ import "../Css/Profile.css";
 import AdminNavbar from "./AdminNavbar";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function Profile() {
   const Navigater = useNavigate();
 
-  const [adminInfo, setadminInfo] = useState({});
+  const [fullName, setFullname] = useState();
+  const [email, setEmail] = useState();
+
   const tokan = sessionStorage.getItem(`accessToken`);
   // console.log(tokan)
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:3046/api/v1/admin/getcurrentAdmin", {
+  const fd = new FormData();
+  fd.append("fullName", fullName);
+  fd.append("email", email);
+
+  const updata = async (e) => {
+    e.preventDefault();
+
+    await axios
+      .post(`http://localhost:3046/api/v1/admin/update`, fd, {
         headers: {
           Authorization: tokan,
         },
       })
       .then((res) => {
-        console.log(res.data.data);
-        setadminInfo(res.data.data);
-        
+        console.log(res);
+        if (res.data.success == true) {
+          toast.success(res.data.message);
+        } else {
+          toast.error(res.data.message);
+        }
       })
-      .catch((e) => {
-        console.log(e);
+      .catch((err) => {
+        console.log(err);
       });
-  }, []);
+  };
 
   return (
     <div>
@@ -50,22 +62,26 @@ export default function Profile() {
                 Full Name:
                 <input
                   type="text"
-                  value={adminInfo.fullName}
                   className="ips"
+                  value={fullName}
+                  onChange={(e) => setFullname(e.target.value)}
                 ></input>
               </label>
               <label className="lab">
                 Email Adrees:
                 <input
                   type="email"
-                  value={adminInfo.email}
                   className="ips"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 ></input>
               </label>
             </div>
           )}
 
-          <button className="btnyu">UpDate</button>
+          <button className="btnyu" onClick={updata}>
+            UpDate
+          </button>
         </div>
       </div>
     </div>

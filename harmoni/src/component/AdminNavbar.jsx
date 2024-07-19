@@ -40,7 +40,7 @@ export default function AdminNavbar() {
               <FontAwesomeIcon icon={faEnvelopeOpen} className="ic" />
               Event Post
             </li>
-            <li onClick={() => Navigate("/admin/alluser")} className="los hover:text-green-500">
+            <li onClick={() => Navigate("/admin/bookEvent")} className="los hover:text-green-500">
               <FontAwesomeIcon icon={faBookmark} className="ic" />
               Book Event
             </li>

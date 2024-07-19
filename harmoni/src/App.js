@@ -21,6 +21,7 @@ import Acount from "./component/User/Acount";
 import ChangePass from "./component/User/Changepass";
 import ChangeUserdetail from "./component/User/Changedetail";
 import Mybooking from "./component/User/Myboking";
+import AllBoking from "./component/Allboking"
 
 function App() {
   return (
@@ -48,6 +49,8 @@ function App() {
         <Route path="/Changepass" element={<ChangePass/>}></Route>
         <Route path="/Changedetail" element={<ChangeUserdetail/>}></Route>
         <Route path="/mybooking" element={<Mybooking/>}></Route>
+        <Route path="/admin/bookEvent" element={<AllBoking/>}></Route>
+
                
       </Routes>
     </BrowserRouter>

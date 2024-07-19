@@ -17,7 +17,8 @@ export default function Passwordchange() {
   fd.append("password", password);
   fd.append("newPassword", newPassword);
 
-  const update = async () => {
+  const update = async (e) => {
+    e.preventDefault();
     await axios
       .post("http://localhost:3046/api/v1/admin/passwordChange", fd, {
         headers: {
