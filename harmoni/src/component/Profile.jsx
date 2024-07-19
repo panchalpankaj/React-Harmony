@@ -56,7 +56,7 @@ export default function Profile() {
         <div className="whitelogo2">
           <p className="lossa">Persnal Detail</p>
 
-          {adminInfo && (
+        
             <div className="inpio">
               <label className="lab">
                 Full Name:
@@ -77,7 +77,7 @@ export default function Profile() {
                 ></input>
               </label>
             </div>
-          )}
+         
 
           <button className="btnyu" onClick={updata}>
             UpDate
