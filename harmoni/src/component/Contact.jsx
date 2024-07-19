@@ -33,7 +33,7 @@ export default function Contact() {
   };
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <Navbar />
       {/* use Props */}
       <Imagetextfront

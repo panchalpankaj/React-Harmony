@@ -8,8 +8,8 @@ import { toast } from "react-toastify";
 export default function Profile() {
   const Navigater = useNavigate();
 
-  const [fullName, setFullname] = useState();
-  const [email, setEmail] = useState();
+  const [fullName, setFullname] = useState("");
+  const [email, setEmail] = useState("");
 
   const tokan = sessionStorage.getItem(`accessToken`);
   // console.log(tokan)
@@ -47,14 +47,17 @@ export default function Profile() {
         <div className="whitelogo">
           <img src="/img/boy.png" className="rounsd" />
         </div>
+        <div className="flex justify-between">
         <div className="btlko">
           <button className="blackbtn">Persnal Detail</button>
           <button className="blackbtn" onClick={() => Navigater("./password")}>
             Change Password
           </button>
         </div>
-        <div className="whitelogo2">
-          <p className="lossa">Persnal Detail</p>
+          <button className="float-end px-2 bg-yellow-500 mt-2 mr-8 rounded-lg text-white font-semibold hover:bg-yellow-300 transition duration-300 " onClick={() => Navigater("/admin/addadmin")}>Add Admin</button>
+          </div>
+        <div className="whitelogo2"> 
+          <p className="lossa">Update Admin FullName and Email Detail</p>
 
         
             <div className="inpio">

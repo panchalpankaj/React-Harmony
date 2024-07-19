@@ -1,14 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import AdminNavbar from './AdminNavbar'
-import "../Css/Alluser.css";
+import axios from 'axios';
 
 function Allboking() {
+
+    const [userData,setUserData] = useState([])
+    const [userIds, setUserIds] = useState([]);
+    const [EventIds,setEventIds] = useState([]);
+    const tokan = sessionStorage.getItem(`accessToken`)
+
+    useEffect(() => {
+        axios.get(`http://localhost:3046/api/v1/users/showallbookings`)
+         .then((res) => {
+            console.log(res.data.data)
+            const userIds = res.data.data.map((user) => user.user_id);
+            const EventIds = res.data.data.map((user) => user.event_id);
+            setUserIds(userIds);
+            setEventIds(EventIds);     
+          })
+         .catch((err) => {
+            console.log(err);
+          });
+      }, []);
+      console.log(userIds,'userIDs');
+      console.log(EventIds,'EventIds');  
+
   return (
     <>
     <div>
     <AdminNavbar/>
         <div className='allu ml-64'>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure earum ad natus necessitatibus sed. Excepturi placeat minus corporis suscipit veritatis reprehenderit sequi quae molestias alias eveniet reiciendis omnis consectetur eius non et aspernatur, labore in est porro id animi, dolore atque? Qui quia quam aliquid omnis, nisi eius maxime voluptatum.
+           
         </div>
     </div>
     </>

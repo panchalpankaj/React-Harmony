@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../Css/AdminNavbar.css";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,58 +12,90 @@ import {
   faOpensuse,
   faWatchmanMonitoring,
 } from "@fortawesome/free-brands-svg-icons";
-
+import { toast } from "react-toastify";
+import axios from "axios";
 
 export default function AdminNavbar() {
   const [isNavVisible, setIsNavVisible] = useState(false);
+  const [curAdmin,setCurAdmin] = useState('');
+
   const Navigate = useNavigate();
 
   const toggleNav = () => {
     setIsNavVisible(!isNavVisible);
   };
 
- const logout = ()=>{
-  sessionStorage.removeItem(`accessToken`)
-  Navigate("/")
- }
+  const logout = () => {
+    sessionStorage.removeItem(`accessToken`);
+    Navigate("/");
+    toast.success("Admin Logout");
+  };
+
+  const tokan = sessionStorage.getItem(`accessToken`);
+
+
+  useEffect(()=> {
+    axios.get(`http://localhost:3046/api/v1/admin/getcurrentAdmin`,{
+      headers:{
+        Authorization:tokan
+      }
+    })
+    .then((res) => {
+      console.log(res.data.data)
+      setCurAdmin(res.data.data)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  },[])
+
+
+
 
   return (
     <div className="hola">
-      <div className={`leftNav ${isNavVisible ? 'visible' : ''}`}>
+      <div className={`leftNav ${isNavVisible ? "visible" : ""}`}>
         <div className="sist pl-3 cursor-pointer opacity-90">
           <ul className="linkse">
-            <li onClick={() => Navigate("/admin/alluser")} className="los hover:text-green-500">
+            <li
+              onClick={() => Navigate("/admin/alluser")}
+              className="los hover:text-green-500"
+            >
               <FontAwesomeIcon icon={faListAlt} className="ic" />
               All User
             </li>
-            <li onClick={() => Navigate("/admin/addEvent")} className="los hover:text-green-500">
+            <li
+              onClick={() => Navigate("/admin/addEvent")}
+              className="los hover:text-green-500"
+            >
               <FontAwesomeIcon icon={faEnvelopeOpen} className="ic" />
               Event Post
             </li>
-            <li onClick={() => Navigate("/admin/bookEvent")} className="los hover:text-green-500">
+            <li
+              onClick={() => Navigate("/admin/bookEvent")}
+              className="los hover:text-green-500"
+            >
               <FontAwesomeIcon icon={faBookmark} className="ic" />
               Book Event
             </li>
-            <li onClick={() => Navigate("/admin/catagary")} className="los hover:text-green-500">
+            <li
+              onClick={() => Navigate("/admin/catagary")}
+              className="los hover:text-green-500"
+            >
               <FontAwesomeIcon icon={faWatchmanMonitoring} className="ic" />
               Post Catergary
             </li>
-
-        </ul>
-            <hr />
-        <p className="cnt">Authantication</p>
-
-      
-        <ul className="linkse">
-          <li onClick={logout} className="los hover:text-green-500">
-            <FontAwesomeIcon icon={faOpensuse} className="ic " />
-            Log out
-          </li>
           </ul>
+          <hr />
+          <p className="cnt">Authantication</p>
 
+          <ul className="linkse">
+            <li onClick={logout} className="los hover:text-green-500">
+              <FontAwesomeIcon icon={faOpensuse} className="ic " />
+              Log out
+            </li>
+          </ul>
         </div>
-       
-        
       </div>
 
       <div className="hor-nav bg-slate-400">
@@ -82,7 +114,7 @@ export default function AdminNavbar() {
               </li>
             </li>
           </ul>
-          Event Managment <br />
+          {curAdmin.fullName} <br />
           Admin
         </h5>
       </div>

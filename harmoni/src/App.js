@@ -22,6 +22,7 @@ import ChangePass from "./component/User/Changepass";
 import ChangeUserdetail from "./component/User/Changedetail";
 import Mybooking from "./component/User/Myboking";
 import AllBoking from "./component/Allboking"
+import Addadmin from "./component/AddAdmin"
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
         <Route path="/Changedetail" element={<ChangeUserdetail/>}></Route>
         <Route path="/mybooking" element={<Mybooking/>}></Route>
         <Route path="/admin/bookEvent" element={<AllBoking/>}></Route>
+        <Route path="/admin/addadmin" element={<Addadmin/>}></Route>
 
                
       </Routes>

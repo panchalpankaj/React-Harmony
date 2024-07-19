@@ -52,7 +52,7 @@ export default function Passwordchange() {
           <button className="blackbtn">Change Password</button>
         </div>
         <div className="whitelogo2">
-          <p className="lossa">Change Password</p>
+          <p className="lossa">Change Admin Password</p>
           <div className="inpio ">
             <label className="lab">
               Old Password:
