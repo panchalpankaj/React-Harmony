@@ -23,7 +23,7 @@ const booking = async (req, res) => {
 
 const getBooking = async (req, res) => {
     try {
-        const book = await Booking.find({ user_id: req.user._id }).populate(["event_id", "user_id"]).select("-user_id -__v")
+        const book = await Booking.find({ user_id: req.user._id }).populate(["event_id", "user_id"])
 
         console.log(book)
         if (!book) {

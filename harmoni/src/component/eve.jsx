@@ -15,12 +15,12 @@ export default function Eve() {
   const userId = sessionStorage.getItem(`UserID`);
   console.log(userId, "userID");
 
-  const EventId = events._id;
-  console.log(EventId, "EventID");
+  const event_id = events._id;
+  console.log(event_id, "EventID");
 
   const book = async (e) => {
     e.preventDefault();
-    const data = {userId,EventId};
+    const data = {event_id};
     await axios
       .post(`http://localhost:3046/api/v1/users/booking`,data,
         {

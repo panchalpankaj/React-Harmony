@@ -24,11 +24,13 @@ function Myboking() {
       });
   }, []);
 
+
   return (
-    <div>
+    <div >
       <Navbar />
       <div className="bg-slate-900 h-full">
         <div className="flex flex-wrap gap-4 justify-around pt-5">
+
           {userData.map((user, index) => (
             <div
               className="bg-gray-300 w-2/5 flex gap-1 justify-between rounded-lg"
@@ -50,26 +52,26 @@ function Myboking() {
                 </div>
                 <div>
                   <p>Location</p>
-                  <p className="text-blue-500">Ahmedabad</p>
+                  <p className="text-blue-500">{user?.event_id?.location}</p>
                 </div>
                 <div>
                   <p>Price:</p>
-                  <p className="text-blue-500">₹100</p>
+                  <p className="text-blue-500">{user?.event_id?.price}</p>
                 </div>
               </div>
 
               <div className="flex flex-col justify-center mr-1">
                 <div>
                   <p>Date & Time</p>
-                  <p className="text-blue-500">2024-08-20</p>
+                  <p className="text-blue-500">{user?.event_id?.s_time}</p>
                 </div>
                 <div>
                   <p>Boking Date:</p>
-                  <p className="text-blue-500">16:4:2024</p>
+                  <p className="text-blue-500">{user?.event_id?.s_date}</p>
                 </div>
                 <div>
                   <p>Title:</p>
-                  <p className="text-blue-500">Happy Birthday</p>
+                  <p className="text-blue-500">{user?.event_id?.title}</p>
                 </div>
               </div>
             </div>
