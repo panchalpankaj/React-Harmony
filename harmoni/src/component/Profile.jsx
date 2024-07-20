@@ -82,7 +82,7 @@ export default function Profile() {
             </div>
          
 
-          <button className="btnyu" onClick={updata}>
+          <button className="btnyu hover:bg-slate-700 duration-300" onClick={updata}>
             UpDate
           </button>
         </div>

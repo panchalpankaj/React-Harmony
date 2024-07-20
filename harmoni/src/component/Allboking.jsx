@@ -29,8 +29,8 @@ function Allboking() {
     <>
     <div>
     <AdminNavbar/>
-        <div className='allu ml-64'>
-           
+        <div className='allu ml-64 bg-slate-900 h-screen text-white'>
+          
         </div>
     </div>
     </>

@@ -27,12 +27,10 @@ export default function Passwordchange() {
       })
       .then((res) => {
         console.log(res);
-        if(res.data.success == true)
-        {
-          toast.success(res.data.message)
-        }
-        else{
-          toast.error(res.data.message)
+        if (res.data.success == true) {
+          toast.success(res.data.message);
+        } else {
+          toast.error(res.data.message);
         }
       })
       .catch((err) => {
@@ -48,9 +46,15 @@ export default function Passwordchange() {
           <img src="/img/boy.png" className="rounsd" />
         </div>
         <div className="btlko">
-          <button className="blackbtn"  onClick={() => Navigator('/admin/profile')}>Persnal Detail</button>
+          <button
+            className="blackbtn"
+            onClick={() => Navigator("/admin/profile")}
+          >
+            Persnal Detail
+          </button>
           <button className="blackbtn">Change Password</button>
         </div>
+
         <div className="whitelogo2">
           <p className="lossa">Change Admin Password</p>
           <div className="inpio ">

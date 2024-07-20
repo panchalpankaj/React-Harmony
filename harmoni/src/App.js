@@ -23,6 +23,7 @@ import ChangeUserdetail from "./component/User/Changedetail";
 import Mybooking from "./component/User/Myboking";
 import AllBoking from "./component/Allboking"
 import Addadmin from "./component/AddAdmin"
+import Allmessage from "./component/Allmessage";
 
 function App() {
   return (
@@ -39,7 +40,6 @@ function App() {
         <Route path="/Signin" element={<Signin />}></Route>
         <Route path="/Signup" element={<Signup />}></Route>
         <Route path="/change" element={<Changedetail />}></Route>
-        <Route path="/myboking" element={<Myboking />}></Route>
         <Route path="/Admin" element={<Admin />}></Route>
         <Route path="/admin/alluser" element={<Alluser />}></Route>
         <Route path="admin/addEvent" element={<AddEvent />}></Route>
@@ -52,6 +52,7 @@ function App() {
         <Route path="/mybooking" element={<Mybooking/>}></Route>
         <Route path="/admin/bookEvent" element={<AllBoking/>}></Route>
         <Route path="/admin/addadmin" element={<Addadmin/>}></Route>
+        <Route path="/admin/allmessage" element={<Allmessage/>}></Route>
 
                
       </Routes>

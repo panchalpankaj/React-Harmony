@@ -60,7 +60,7 @@ export default function Catagary() {
   }, []);
 
   return (
-    <div>
+    <div >
       <AdminNavbar />
       <div className="onetwo">
         <div className="folms">
@@ -99,7 +99,7 @@ export default function Catagary() {
           </li>
 
           {userData.map((user, index) => (
-            <ul className="users">
+            <ul className="users bg-slate-900 text-white">
               <li>{index + 1}</li>
               <li className="roun">
                 <img src={user.URL} className="roun" />

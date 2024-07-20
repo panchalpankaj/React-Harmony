@@ -40,7 +40,7 @@ export default function Alluser() {
         </ul>
 
         {userdata.map((user, index) => (
-          <ul className="users rounded-full">
+          <ul className="users rounded-md bg-slate-900 text-white">
             <li>{index + 1}</li>
             <li className="roun">
               <img src={user.avatar} className="roun" />

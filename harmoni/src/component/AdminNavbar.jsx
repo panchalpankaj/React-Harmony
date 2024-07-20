@@ -7,6 +7,7 @@ import {
   faEnvelopeOpen,
   faListAlt,
   faBars,
+  faMessage,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faOpensuse,
@@ -84,6 +85,14 @@ export default function AdminNavbar() {
             >
               <FontAwesomeIcon icon={faWatchmanMonitoring} className="ic" />
               Post Catergary
+            </li>
+            <li
+              onClick={() => Navigate("/admin/allmessage")}
+              className="los hover:text-green-500"
+            >
+              <FontAwesomeIcon icon={faMessage} className="ic"/>
+             
+              All Message
             </li>
           </ul>
           <hr />
