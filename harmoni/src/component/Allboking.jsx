@@ -1,62 +1,56 @@
 import React, { useEffect, useState } from "react";
-import AdminNavbar from "./AdminNavbar";
 import axios from "axios";
-
+import AdminNavbar from "./AdminNavbar";
 function Allboking() {
-  const [bookings, setBookings] = useState([]);
-  const [users, setUsers] = useState([]);
-  const [events, setEvents] = useState([]);
+  const [Booking, setBookings] = useState([]);
+  const [User, setUsers] = useState([]);
+  const [Event, setEvents] = useState([]);
 
-  const token = sessionStorage.getItem("accessToken");
-
+  const tokan = sessionStorage.getItem(`accessToken`);
   useEffect(() => {
-    const fetchBookings = axios.get(
-      "http://localhost:3046/api/v1/users/showallbookings"
+    const Booking = axios.get(
+      `http://localhost:3046/api/v1/users/showallbookings`
     );
-    const fetchUsers = axios.get(
-      "http://localhost:3046/api/v1/admin/getalluser",
-      {
-        headers: { Authorization: token },
+
+    const Users = axios.get(`http://localhost:3046/api/v1/admin/getalluser`, {
+      headers: {
+        Authorization: tokan,
+      },
+    });
+
+    const Events = axios.get(
+      `http://localhost:3046/api/v1/admin/showallevents`
+    );
+
+    Promise.all([Booking, Users, Events]).then(
+      ([resBoking, resUsers, resEvents]) => {
+        setBookings(resBoking.data.data);
+        setUsers(resUsers.data.data);
+        setEvents(resEvents.data.data);
       }
     );
-    const fetchEvents = axios.get(
-      "http://localhost:3046/api/v1/admin/showallevents"
-    );
-
-    Promise.all([fetchBookings, fetchUsers, fetchEvents])
-      .then(([bookingsRes, usersRes, eventsRes]) => {
-        setBookings(bookingsRes.data.data);
-        setUsers(usersRes.data.data);
-        setEvents(eventsRes.data.data);
-       
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [token]);
+  }, [tokan]);
 
   const getUserById = (id) => {
-    return users.find((user) => user._id === id);
+    return User.find((user) => user._id === id);
   };
 
   const getEventById = (id) => {
-    return events.find((event) => event._id === id);
+    return Event.find((events) => events._id === id);
   };
 
-
-  const filteredBookings = bookings.filter((booking) => {
+  const book = Booking.filter((booking) => {
     const user = getUserById(booking.user_id);
     const event = getEventById(booking.event_id);
     return user && event;
   });
-
   return (
     <>
       <div>
         <AdminNavbar />
         <div className="allu text-gray-200 bg-slate-800 ">
           <div>
-            {filteredBookings.map((booking) => {
+            {book.map((booking) => {
               const user = getUserById(booking.user_id);
               const event = getEventById(booking.event_id);
               return (
@@ -72,31 +66,40 @@ function Allboking() {
                   </div>
                   <div className="float-right">
                     <p>
-                      <span className="font-semibold text-lg">User:</span> {user.fullName}
+                      <span className="font-semibold text-lg">User:</span>{" "}
+                      {user.fullName}
                     </p>
                     <p>
-                      <span className="font-semibold text-lg">Email:</span> {user.email}
+                      <span className="font-semibold text-lg">Email:</span>{" "}
+                      {user.email}
                     </p>
                     <p>
-                      <span className="font-semibold text-lg">mobile_no:</span> {user.mobile_no}
+                      <span className="font-semibold text-lg">mobile_no:</span>{" "}
+                      {user.mobile_no}
                     </p>
                     <p>
-                      <span className="font-semibold text-lg">Event:</span> {event.title}
+                      <span className="font-semibold text-lg">Event:</span>{" "}
+                      {event.title}
                     </p>
                     <p>
-                      <span className="font-semibold text-lg">S_data:</span> {event.s_date}
+                      <span className="font-semibold text-lg">S_data:</span>{" "}
+                      {event.s_date}
                     </p>
                     <p>
-                      <span className="font-semibold text-lg">S_time:</span> {event.s_time}
+                      <span className="font-semibold text-lg">S_time:</span>{" "}
+                      {event.s_time}
                     </p>
                     <p>
-                      <span className="font-semibold text-lg">location:</span> {event.location}
+                      <span className="font-semibold text-lg">location:</span>{" "}
+                      {event.location}
                     </p>
                     <p>
-                      <span className="font-semibold text-lg">price:</span> {event.price}
+                      <span className="font-semibold text-lg">price:</span>{" "}
+                      {event.price}
                     </p>
                     <p>
-                      <span className="font-semibold text-lg">Booking ID:</span> {booking._id}
+                      <span className="font-semibold text-lg">Booking ID:</span>{" "}
+                      {booking._id}
                     </p>
                   </div>
                 </div>

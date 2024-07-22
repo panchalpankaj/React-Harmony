@@ -50,13 +50,10 @@ export default function AdminNavbar() {
     })
   },[])
 
-
-
-
   return (
-    <div className="hola">
+    <div className="hola ">
       <div className={`leftNav ${isNavVisible ? "visible" : ""}`}>
-        <div className="sist pl-3 cursor-pointer opacity-90">
+        <div className="sist pl-3 cursor-pointer opacity-90 fixed">
           <ul className="linkse">
             <li
               onClick={() => Navigate("/admin/alluser")}
