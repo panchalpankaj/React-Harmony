@@ -6,7 +6,7 @@ function Allboking() {
   const [bookings, setBookings] = useState([]);
   const [users, setUsers] = useState([]);
   const [events, setEvents] = useState([]);
-  const [loading, setLoading] = useState(true);
+
   const token = sessionStorage.getItem("accessToken");
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function Allboking() {
         setBookings(bookingsRes.data.data);
         setUsers(usersRes.data.data);
         setEvents(eventsRes.data.data);
-        setLoading(false);
+       
       })
       .catch((err) => {
         console.log(err);
@@ -42,17 +42,6 @@ function Allboking() {
   const getEventById = (id) => {
     return events.find((event) => event._id === id);
   };
-
-  if (loading) {
-    return (
-      <div>
-        <AdminNavbar />
-        <div className="allu ml-64 bg-slate-900 h-screen text-white">
-          <p>Loading...</p>
-        </div>
-      </div>
-    );
-  }
 
 
   const filteredBookings = bookings.filter((booking) => {
@@ -71,36 +60,44 @@ function Allboking() {
               const user = getUserById(booking.user_id);
               const event = getEventById(booking.event_id);
               return (
-                <div key={booking._id} className="p-4 border-b border-gray-700 flex justify-around">
-                  <div className="float-left h-1/2 w-1/2" ><img src={event.image} className="w-1/2 h-1/2 object-cover"></img></div>
+                <div
+                  key={booking._id}
+                  className="p-4 border-b border-gray-700 flex justify-around"
+                >
+                  <div className="float-left h-1/2 w-1/2">
+                    <img
+                      src={event.image}
+                      className="w-1/2 h-1/2 object-cover"
+                    ></img>
+                  </div>
                   <div className="float-right">
-                  <p>
-                    <strong>User:</strong> {user.fullName}
-                  </p>
-                  <p>
-                    <strong>Email:</strong> {user.email}
-                  </p>
-                  <p>
-                    <strong>mobile_no:</strong> {user.mobile_no}
-                  </p>
-                  <p>
-                    <strong>Event:</strong> {event.title}
-                  </p>
-                  <p>
-                    <strong>S_data:</strong> {event.s_date}
-                  </p>
-                  <p>
-                    <strong>S_time:</strong> {event.s_time}
-                  </p>
-                  <p>
-                    <strong>location:</strong> {event.location}
-                  </p>
-                  <p>
-                    <strong>price:</strong> {event.price}
-                  </p>
-                  <p>
-                    <strong>Booking ID:</strong> {booking._id}
-                  </p>
+                    <p>
+                      <span className="font-semibold text-lg">User:</span> {user.fullName}
+                    </p>
+                    <p>
+                      <span className="font-semibold text-lg">Email:</span> {user.email}
+                    </p>
+                    <p>
+                      <span className="font-semibold text-lg">mobile_no:</span> {user.mobile_no}
+                    </p>
+                    <p>
+                      <span className="font-semibold text-lg">Event:</span> {event.title}
+                    </p>
+                    <p>
+                      <span className="font-semibold text-lg">S_data:</span> {event.s_date}
+                    </p>
+                    <p>
+                      <span className="font-semibold text-lg">S_time:</span> {event.s_time}
+                    </p>
+                    <p>
+                      <span className="font-semibold text-lg">location:</span> {event.location}
+                    </p>
+                    <p>
+                      <span className="font-semibold text-lg">price:</span> {event.price}
+                    </p>
+                    <p>
+                      <span className="font-semibold text-lg">Booking ID:</span> {booking._id}
+                    </p>
                   </div>
                 </div>
               );
