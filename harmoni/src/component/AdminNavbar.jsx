@@ -104,7 +104,7 @@ export default function AdminNavbar() {
         </div>
       </div>
 
-      <div className="hor-nav bg-slate-400">
+      <div className="hor-nav bg-slate-400 fixed">
         <FontAwesomeIcon
           icon={faBars}
           className="hamburger-icon"

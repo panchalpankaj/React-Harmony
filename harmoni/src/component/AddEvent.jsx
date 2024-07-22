@@ -70,8 +70,9 @@ export default function AddEvent() {
   return (
     <div >
       <AdminNavbar />
-      <div className="bg-slate-900"  >
-      <div className="folms border-2 border-gray-400 p-4 bg-slate-600 text-white">
+      <div className="bg-slate-900 h-full"  >
+        <div className="bg-slate-900">
+      <div className="folms border-2 border-gray-400 p-4  bg-slate-700 text-white">
         <p className="roundfg">
           <FontAwesomeIcon icon={faLock} className="locks" />
           <p className="poste">Post Event</p>
@@ -153,6 +154,7 @@ export default function AddEvent() {
         <button className="btny" onClick={Postbtn}>
           Post
         </button>
+      </div>
       </div>
       </div>
     </div>

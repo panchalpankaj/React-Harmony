@@ -30,10 +30,10 @@ function Allmessage() {
     <>
       <div>
         <AdminNavbar />
-        <div className="allu ml-64 bg-slate-900 h-screen">
-    <div className="flex justify-around  mb-5 flex-wrap">
+        <div className="allu ml-64">
+    <div className="flex justify-around mb-5 flex-wrap h-full bg-slate-900">
           { message.map((data) => (
-          <div className="bg-gray-300 w-2/5 flex gap-1 justify-around rounded-lg p-3 mt-5">
+          <div className="bg-gray-300 w-2/5 flex gap-1 justify-around rounded-lg p-3 mt-5 ">
             <div className="flex flex-col justify-center ml-2">
               <div>
                 <p>Full Name</p>

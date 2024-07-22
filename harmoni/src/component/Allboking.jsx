@@ -78,7 +78,7 @@ function Allboking() {
                       {user.mobile_no}
                     </p>
                     <p>
-                      <span className="font-semibold text-lg">Event:</span>{" "}
+                      <span className="font-semibold text-lg">Event:</span>{"  "}
                       {event.title}
                     </p>
                     <p>
