@@ -4,14 +4,14 @@ import "../Css/Addevent.css";
 import AdminNavbar from "./AdminNavbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDeleteLeft, faLock } from "@fortawesome/free-solid-svg-icons";
-import { faMessage } from "@fortawesome/free-regular-svg-icons";
+
 import axios from "axios";
 import { toast } from "react-toastify";
 
 export default function Catagary() {
   const [category_name, setCatname] = useState("");
   const [URL, setUrl] = useState("");
-  const [userData, setUserData] = useState([]);
+  
 
   const token = sessionStorage.getItem("accessToken");
   // console.log(token)
@@ -43,21 +43,7 @@ export default function Catagary() {
       });
   };
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:3046/api/v1/admin/showcategory", {
-        headers: {
-          Authorization: token,
-        },
-      })
-      .then((res) => {
-        console.log(res.data.message);
-        setUserData(res.data.message);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }, []);
+ 
 
   return (
     <div >
@@ -90,28 +76,7 @@ export default function Catagary() {
           </button>
         </div>
 
-        <div className="allu2">
-          <li className="blackindex2">
-            <li>No</li>
-            <li>image</li>
-            <li>Name</li>
-            <li>Action</li>
-          </li>
-
-          {userData.map((user, index) => (
-            <ul className="users bg-slate-900 text-white">
-              <li>{index + 1}</li>
-              <li className="roun">
-                <img src={user.URL} className="roun" />
-              </li>
-              <li>{user.category_name}</li>
-              <li>
-                <FontAwesomeIcon icon={faMessage} />
-                <FontAwesomeIcon icon={faDeleteLeft} />
-              </li>
-            </ul>
-          ))}
-        </div>
+        
       </div>
     </div>
   );
