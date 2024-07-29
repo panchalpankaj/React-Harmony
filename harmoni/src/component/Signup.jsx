@@ -30,22 +30,20 @@ export default function Signup() {
   const signin = async (e) => {
     e.preventDefault();
     const data = { fullName, email, mobile_no, gender, password };
-    axios
+   await axios
       .post(`http://localhost:3046/api/v1/users/register`, data)
       .then((r) => {
-        if(r.data.success == true)
-        {
-        console.log(r);
-        toast.success(r.data.message)
-        Navigate("/")
-        }
-        else{
-          toast.error(r.data.message)
+        if (r.data.success == true) {
+          console.log(r);
+          toast.success(r.data.message);
+          Navigate("/");
+        } else {
+          toast.error(r.data.message);
         }
       })
       .catch((e) => {
         console.log(e);
-        toast.error(e.message)
+        toast.error(e.message);
       });
   };
 

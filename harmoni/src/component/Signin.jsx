@@ -54,7 +54,7 @@ export default function Signin() {
               className="tf"
             ></input>
             <input
-              type="text"
+              type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password*"
