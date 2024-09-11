@@ -3,11 +3,9 @@ import AdminNavbar from "./AdminNavbar";
 import axios from "axios";
 
 function Allmessage() {
-    const [message,setMessage] = useState([]);
-
+  const [message, setMessage] = useState([]);
 
   const tokan = sessionStorage.getItem(`accessToken`);
-
 
   useEffect(() => {
     axios
@@ -23,44 +21,40 @@ function Allmessage() {
       .catch((err) => {
         console.log(err);
       });
-  });
-
+  },[]);
 
   return (
     <>
       <div>
         <AdminNavbar />
         <div className="allu ml-64">
-    <div className="flex justify-around mb-5 flex-wrap h-full bg-slate-900">
-          { message.map((data) => (
-          <div className="bg-gray-300 w-2/5 flex gap-1 justify-around rounded-lg p-3 mt-5 ">
-            <div className="flex flex-col justify-center ml-2">
-              <div>
-                <p>Full Name</p>
-                <p className="text-orange-500">{data.fullName}</p>
-              </div>
-              <div>
-                <p>Message</p>
-                <p className="text-orange-500">{data.message}</p>
-              </div>
-             
-            </div>
+          <div className="flex justify-around mb-5 flex-wrap h-full bg-slate-900">
+            {message.map((data) => (
+              <div className="bg-gray-300 w-2/5 flex gap-1 justify-around rounded-lg p-3 mt-5 ">
+                <div className="flex flex-col justify-center ml-2">
+                  <div>
+                    <p>Full Name</p>
+                    <p className="text-orange-500">{data.fullName}</p>
+                  </div>
+                  <div>
+                    <p>Message</p>
+                    <p className="text-orange-500">{data.message}</p>
+                  </div>
+                </div>
 
-            <div className="flex flex-col justify-center mr-1">
-              <div>
-                <p>Email</p>
-                <p className="text-orange-500">{data.email}</p>
+                <div className="flex flex-col justify-center mr-1">
+                  <div>
+                    <p>Email</p>
+                    <p className="text-orange-500">{data.email}</p>
+                  </div>
+                  <div>
+                    <p>Mobile No</p>
+                    <p className="text-orange-500">{data.mobile_no}</p>
+                  </div>
+                </div>
               </div>
-              <div>
-                <p>Mobile No</p>
-                <p className="text-orange-500">{data.mobile_no}</p>
-              </div>
-             
-            </div>
+            ))}
           </div>
-
-)) }
-</div>
         </div>
       </div>
     </>

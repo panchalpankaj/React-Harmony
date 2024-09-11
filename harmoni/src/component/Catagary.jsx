@@ -3,15 +3,13 @@ import "../Css/Catagary.css";
 import "../Css/Addevent.css";
 import AdminNavbar from "./AdminNavbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDeleteLeft, faLock } from "@fortawesome/free-solid-svg-icons";
-
-import axios from "axios";
+import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 export default function Catagary() {
   const [category_name, setCatname] = useState("");
   const [URL, setUrl] = useState("");
-  
 
   const token = sessionStorage.getItem("accessToken");
   // console.log(token)
@@ -28,13 +26,11 @@ export default function Catagary() {
         },
       })
       .then((res) => {
-        console.log(res);
-        if(res.data.success == true)
-        {
-          toast.success(res.data.message)
-        }
-        else{
-          toast.error(res.data.message)
+        // console.log(res);
+        if (res.data.success == true) {
+          toast.success(res.data.message);
+        } else {
+          toast.error(res.data.message);
         }
       })
 
@@ -43,10 +39,8 @@ export default function Catagary() {
       });
   };
 
- 
-
   return (
-    <div >
+    <div>
       <AdminNavbar />
       <div className="onetwo">
         <div className="folms">
@@ -75,8 +69,6 @@ export default function Catagary() {
             Post
           </button>
         </div>
-
-        
       </div>
     </div>
   );

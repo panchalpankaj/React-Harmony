@@ -17,7 +17,6 @@ function Allboking() {
         Authorization: tokan,
       },
     });
-
     const Events = axios.get(
       `http://localhost:3046/api/v1/admin/showallevents`
     );

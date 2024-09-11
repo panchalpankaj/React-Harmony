@@ -18,7 +18,6 @@ export default function Signup() {
   const [password, setPass] = useState("");
 
   const Navigate = useNavigate("");
-
   const handleSelect = (e) => {
     setSelectOption(e.target.value);
   };
@@ -30,7 +29,7 @@ export default function Signup() {
   const signin = async (e) => {
     e.preventDefault();
     const data = { fullName, email, mobile_no, gender, password };
-   await axios
+    await axios
       .post(`http://localhost:3046/api/v1/users/register`, data)
       .then((r) => {
         if (r.data.success == true) {

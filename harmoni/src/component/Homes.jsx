@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "../Css/Home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navbar from "./Navbar";
@@ -10,22 +10,11 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 export default function Homes() {
-  const [count , setCount] = useState(0)
-
-  useEffect(()=>{
-    setTimeout(()=>{
-      setCount((count)=>count+1)
-    },1000)
-  })
-
-
   return (
     <>
-     
       <Navbar />
       <div className="homepage">
         <img src="./img/night.jpg" alt="HomePage" className="homePageImg" />
-             
         <h2 className="pp">
           One Stop Event <br /> Planner
         </h2>

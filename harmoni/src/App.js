@@ -21,8 +21,8 @@ import Acount from "./component/User/Acount";
 import ChangePass from "./component/User/Changepass";
 import ChangeUserdetail from "./component/User/Changedetail";
 import Mybooking from "./component/User/Myboking";
-import AllBoking from "./component/Allboking"
-import Addadmin from "./component/AddAdmin"
+import AllBoking from "./component/Allboking";
+import Addadmin from "./component/AddAdmin";
 import Allmessage from "./component/Allmessage";
 
 function App() {
@@ -45,16 +45,14 @@ function App() {
         <Route path="admin/addEvent" element={<AddEvent />}></Route>
         <Route path="/admin/profile" element={<Profile />}></Route>
         <Route path="/admin/catagary" element={<Catagary />}></Route>
-        <Route path="admin/profile/password" element={<Passwordchange />}></Route>
+        <Route path="admin/profile/password"element={<Passwordchange />}></Route>
         <Route path="/Account" element={<Acount />}></Route>
-        <Route path="/Changepass" element={<ChangePass/>}></Route>
-        <Route path="/Changedetail" element={<ChangeUserdetail/>}></Route>
-        <Route path="/mybooking" element={<Mybooking/>}></Route>
-        <Route path="/admin/bookEvent" element={<AllBoking/>}></Route>
-        <Route path="/admin/addadmin" element={<Addadmin/>}></Route>
-        <Route path="/admin/allmessage" element={<Allmessage/>}></Route>
-
-               
+        <Route path="/Changepass" element={<ChangePass />}></Route>
+        <Route path="/Changedetail" element={<ChangeUserdetail />}></Route>
+        <Route path="/mybooking" element={<Mybooking />}></Route>
+        <Route path="/admin/bookEvent" element={<AllBoking />}></Route>
+        <Route path="/admin/addadmin" element={<Addadmin />}></Route>
+        <Route path="/admin/allmessage" element={<Allmessage />}></Route>
       </Routes>
     </BrowserRouter>
   );

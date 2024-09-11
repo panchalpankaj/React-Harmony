@@ -16,7 +16,6 @@ export default function Eventes() {
 
   useEffect(() => {
     const data = {category_id : state._id}
-    
     axios
     .post(`http://localhost:3046/api/v1/admin/showeventsbycategory` , data)
       .then((res) => {
