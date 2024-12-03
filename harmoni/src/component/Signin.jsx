@@ -8,8 +8,8 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 export default function Signin() {
+  
   const Navigate = useNavigate("");
-
   const [isChecked, setIsChecked] = useState(false);
   const [mobile_no, setPhno] = useState("");
   const [password, setPassword] = useState("");
@@ -75,6 +75,9 @@ export default function Signin() {
                   Sign Up
                 </span>
               </p>
+                <p>Admin 
+                <button className="px-2 lin" onClick={() => Navigate('/admin')}> Login</button>
+                </p>
             </div>
             <p className="centr">Copyright @ All right reserve</p>
           </div>

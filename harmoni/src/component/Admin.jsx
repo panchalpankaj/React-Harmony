@@ -23,15 +23,12 @@ export default function Admin() {
         console.log(res);
         console.log(res.data.accessToken);
         sessionStorage.setItem("accessToken", res.data.accessToken);
-        
 
-        if(res.data.success == true)
-        {
-          toast.success(res.data.message)
+        if (res.data.success == true) {
+          toast.success(res.data.message);
           Navigate("/admin/alluser");
-        }
-        else{
-          toast.error(res.data.message)
+        } else {
+          toast.error(res.data.message);
         }
       })
       .catch((e) => {
@@ -48,35 +45,35 @@ export default function Admin() {
       <img src="/img/space_2.jpg" className="admin" />
       <div className="formw border-2 rounded bg-slate-200 opacity-80 z-0">
         <div className="z-10 opacity-100">
-        <FontAwesomeIcon icon={faLock} id="locku" />
-        <p className="logs text-gray-700">LOGIN</p>
-        <input
-          type="text"
-          placeholder="Email"
-          className="inpus text-black"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          className="inpus"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <label className="checkbox">
+          <FontAwesomeIcon icon={faLock} id="locku" />
+          <p className="logs text-gray-700">LOGIN</p>
           <input
-            type="checkbox"
-            checked={isChecked}
-            onChange={handelCheck}
-            className="checkboxyu"
+            type="text"
+            placeholder="Email"
+            className="inpus text-black"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <p className="rememyu text-gray-800">Remember me</p>
-        </label>
-        <button className="logbtnl" onClick={login}>
-          <p className="lo">Login</p>
-        </button>
-      </div>
+          <input
+            type="password"
+            placeholder="Password"
+            className="inpus"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <label className="checkbox">
+            <input
+              type="checkbox"
+              checked={isChecked}
+              onChange={handelCheck}
+              className="checkboxyu"
+            />
+            <p className="rememyu text-gray-800">Remember me</p>
+          </label>
+          <button className="logbtnl" onClick={login}>
+            <p className="lo">Login</p>
+          </button>
+        </div>
       </div>
     </div>
   );

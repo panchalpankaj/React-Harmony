@@ -46,7 +46,6 @@ export default function Navbar() {
 
   const Logout = async(e) => {
     e.preventDefault(); 
-
     const formData = new FormData();
     formData.append('mobile_no', 'mobile_no');
     formData.append('password', 'password');
