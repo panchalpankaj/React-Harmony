@@ -17,6 +17,7 @@ export default function AddEvent() {
   const [category, setCategory] = useState({ name: "", id: "" });
   const [image, setImgs] = useState("");
   const [userData, setUserData] = useState([]);
+  console.log(userData);
 
   const token = sessionStorage.getItem("accessToken");
 
